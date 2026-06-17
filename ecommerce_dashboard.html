@@ -1,49 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>E-Commerce Analytics Dashboard</title>
+        
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
                 darkMode: 'class',
+                theme: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
             }
         </script>
         <script type="importmap">
-    {
-        "imports": {
-            "react": "https://esm.sh/react@18.2.0",
-            "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-            "lucide-react": "https://esm.sh/lucide-react@0.292.0"
+        {
+            "imports": {
+                "react": "https://esm.sh/react@18.2.0",
+                "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?external=react",
+                "lucide-react": "https://esm.sh/lucide-react@0.344.0?external=react"
+            }
         }
-    }
-    </script>
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        </script>
+        <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
         <style>
             /* Custom Scrollbar */
             ::-webkit-scrollbar {
                 width: 8px;
                 height: 8px;
             }
-
             ::-webkit-scrollbar-track {
                 background: transparent;
             }
-
             ::-webkit-scrollbar-thumb {
                 background: #cbd5e1;
                 border-radius: 4px;
             }
-
             .dark ::-webkit-scrollbar-thumb {
-                background: #475569;
+                background: #334155;
+            }
+            body { 
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
         </style>
     </head>
 
-    <body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-300">
+    <body class="bg-slate-50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-50 transition-colors duration-500">
         <div id="root"></div>
 
         <script type="text/babel" data-type="module">
@@ -55,7 +67,7 @@
                 Menu, X, Package, ArrowUpRight
             } from 'lucide-react';
 
-            // --- MOCK DATA ---
+            // MOCK DATA
             const RECENT_ORDERS = [
                 { id: "#ORD-7235", product: "Nike Air Max", customer: "Alex Doe", date: "2 mins ago", amount: "$129.00", status: "Completed" },
                 { id: "#ORD-7234", product: "Adidas Ultraboost", customer: "Jane Smith", date: "15 mins ago", amount: "$180.00", status: "Pending" },
@@ -65,55 +77,53 @@
             ];
 
             const STATS = [
-                { title: "Total Revenue", value: "$45,231.89", change: "+20.1%", trend: "up", icon: DollarSign, color: "text-emerald-600", bg: "bg-emerald-100 dark:bg-emerald-900/30" },
-                { title: "Active Orders", value: "+573", change: "+12.5%", trend: "up", icon: ShoppingBag, color: "text-blue-600", bg: "bg-blue-100 dark:bg-blue-900/30" },
-                { title: "New Customers", value: "1,205", change: "-2.3%", trend: "down", icon: Users, color: "text-purple-600", bg: "bg-purple-100 dark:bg-purple-900/30" },
-                { title: "Total Products", value: "892", change: "+5.4%", trend: "up", icon: Package, color: "text-amber-600", bg: "bg-amber-100 dark:bg-amber-900/30" },
+                { title: "Total Revenue", value: "$45,231.89", change: "+20.1%", trend: "up", icon: DollarSign, color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-100 dark:bg-emerald-500/10" },
+                { title: "Active Orders", value: "+573", change: "+12.5%", trend: "up", icon: ShoppingBag, color: "text-indigo-600 dark:text-indigo-400", bg: "bg-indigo-100 dark:bg-indigo-500/10" },
+                { title: "New Customers", value: "1,205", change: "-2.3%", trend: "down", icon: Users, color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-100 dark:bg-purple-500/10" },
+                { title: "Total Products", value: "892", change: "+5.4%", trend: "up", icon: Package, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-100 dark:bg-amber-500/10" },
             ];
 
-            // --- COMPONENTS ---
-
+            // COMPONENTS
             const SidebarItem = ({ icon: Icon, label, active, onClick }) => (
                 <button
                     onClick={ onClick }
-                    className={ `flex items-center gap-3 w-full px-4 py-3 rounded-lg transition-colors ${active ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30' : 'text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800'}` }
+                    className={ `flex items-center gap-3 w-full px-4 py-3 rounded-xl transition-all duration-300 font-medium ${active ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/30' : 'text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'}` }
                 >
                     <Icon size={ 20 } />
-                    <span className="font-medium">{ label }</span>
+                    <span>{ label }</span>
                 </button>
             );
 
             const StatCard = ({ stat }) => (
-                <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
+                <div className="bg-white/80 dark:bg-slate-800/50 backdrop-blur-xl p-6 rounded-2xl shadow-sm border border-slate-200/50 dark:border-slate-700/50 hover:-translate-y-1 transition-transform duration-300">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{ stat.title }</p>
-                            <h3 className="text-2xl font-bold mt-2">{ stat.value }</h3>
+                            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{ stat.title }</p>
+                            <h3 className="text-2xl font-bold mt-2 text-slate-900 dark:text-white tracking-tight">{ stat.value }</h3>
                         </div>
-                        <div className={ `p-3 rounded-lg ${stat.bg} ${stat.color}` }>
+                        <div className={ `p-3 rounded-xl ${stat.bg} ${stat.color}` }>
                             <stat.icon size={ 24 } />
                         </div>
                     </div>
                     <div className="flex items-center mt-4 gap-2">
-                        <span className={ `flex items-center text-xs font-medium ${stat.trend === 'up' ? 'text-emerald-600' : 'text-red-600'}` }>
+                        <span className={ `flex items-center text-sm font-bold ${stat.trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}` }>
                             { stat.trend === 'up' ? <TrendingUp size={ 16 } className="mr-1" /> : <TrendingDown size={ 16 } className="mr-1" /> }
                             { stat.change }
                         </span>
-                        <span className="text-xs text-slate-400">from last month</span>
+                        <span className="text-sm text-slate-400 font-medium">from last month</span>
                     </div>
                 </div>
             );
 
             const SimpleLineChart = () => (
-                <div className="relative h-64 w-full flex items-end gap-2 pt-8">
-                    {/* Mock Bars for Visualization */ }
+                <div className="relative h-64 w-full flex items-end gap-3 pt-8">
                     { [40, 65, 45, 70, 55, 80, 60, 85, 90, 75, 60, 95].map((h, i) => (
-                        <div key={ i } className="w-full bg-slate-100 dark:bg-slate-700 rounded-t-sm relative group">
+                        <div key={ i } className="w-full bg-slate-100 dark:bg-slate-800 rounded-t-md relative group h-full flex items-end overflow-hidden">
                             <div
-                                className="absolute bottom-0 w-full bg-indigo-500 rounded-t-sm transition-all duration-500 hover:bg-indigo-400"
+                                className="w-full bg-gradient-to-t from-indigo-600 to-purple-500 rounded-t-md transition-all duration-500 group-hover:opacity-80"
                                 style={ { height: `${h}%` } }
                             >
-                                <div className="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs py-1 px-2 rounded transition-opacity">
+                                <div className="opacity-0 group-hover:opacity-100 absolute bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs py-1.5 px-2.5 rounded-lg transition-opacity font-medium shadow-xl">
                                     ${ h * 100 }
                                 </div>
                             </div>
@@ -127,127 +137,140 @@
                 const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
                 useEffect(() => {
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        setDarkMode(true);
+                    }
+                }, []);
+
+                useEffect(() => {
                     if (darkMode) document.documentElement.classList.add('dark');
                     else document.documentElement.classList.remove('dark');
                 }, [darkMode]);
 
                 return (
-                    <div className="flex min-h-screen bg-slate-50 dark:bg-slate-900 overflow-hidden">
+                    <div className="flex min-h-screen bg-slate-50 dark:bg-[#0B1120] overflow-hidden relative">
+                        
+                        {/* Ambient Background */}
+                        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+                            <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-indigo-500/5 blur-[120px]"></div>
+                            <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] rounded-full bg-purple-500/5 blur-[120px]"></div>
+                        </div>
 
-                        {/* Sidebar */ }
-                        <aside className={ `${isSidebarOpen ? 'w-64' : 'w-0'} fixed md:relative z-30 h-screen bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 transition-all duration-300 overflow-hidden flex flex-col` }>
-                            <div className="p-6 border-b border-slate-200 dark:border-slate-700 flex items-center gap-3">
-                                <div className="bg-indigo-600 p-2 rounded-lg">
+                        {/* Sidebar */}
+                        <aside className={ `${isSidebarOpen ? 'w-72' : 'w-0'} fixed md:relative z-30 h-screen bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-r border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 overflow-hidden flex flex-col` }>
+                            <div className="p-6 border-b border-slate-200/50 dark:border-slate-800/50 flex items-center gap-3">
+                                <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-2.5 rounded-xl shadow-lg shadow-indigo-500/20">
                                     <LayoutDashboard className="text-white" size={ 24 } />
                                 </div>
-                                <h1 className="font-bold text-xl tracking-tight">DashStack</h1>
+                                <h1 className="font-extrabold text-2xl tracking-tight text-slate-900 dark:text-white">DashStack</h1>
                             </div>
 
                             <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
-                                <SidebarItem icon={ LayoutDashboard } label="Dashboard" active={ true } onClick={ () => { } } />
-                                <SidebarItem icon={ ShoppingBag } label="Orders" active={ false } onClick={ () => { } } />
-                                <SidebarItem icon={ Users } label="Customers" active={ false } onClick={ () => { } } />
-                                <SidebarItem icon={ Package } label="Products" active={ false } onClick={ () => { } } />
-                                <SidebarItem icon={ DollarSign } label="Finance" active={ false } onClick={ () => { } } />
+                                <SidebarItem icon={ LayoutDashboard } label="Dashboard Overview" active={ true } onClick={ () => { } } />
+                                <SidebarItem icon={ ShoppingBag } label="Orders Management" active={ false } onClick={ () => { } } />
+                                <SidebarItem icon={ Users } label="Customers Directory" active={ false } onClick={ () => { } } />
+                                <SidebarItem icon={ Package } label="Products Inventory" active={ false } onClick={ () => { } } />
+                                <SidebarItem icon={ DollarSign } label="Financial Reports" active={ false } onClick={ () => { } } />
                             </nav>
 
-                            <div className="p-4 border-t border-slate-200 dark:border-slate-700">
-                                <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-4 text-white">
-                                    <p className="text-sm font-medium mb-1">Pro Plan</p>
-                                    <p className="text-xs opacity-80 mb-3">Get access to all features</p>
-                                    <button className="w-full py-2 bg-white/20 hover:bg-white/30 rounded-lg text-xs font-semibold transition-colors">Upgrade</button>
+                            <div className="p-6 border-t border-slate-200/50 dark:border-slate-800/50">
+                                <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-5 text-white shadow-xl shadow-indigo-500/20 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                                    <p className="text-base font-bold mb-1">Pro Plan Active</p>
+                                    <p className="text-sm opacity-90 mb-4 font-medium">Accessing all premium features</p>
+                                    <button className="w-full py-2.5 bg-white text-indigo-600 hover:bg-slate-50 rounded-xl text-sm font-bold transition-colors shadow-sm">Manage Plan</button>
                                 </div>
                             </div>
                         </aside>
 
-                        {/* Main Content */ }
-                        <main className="flex-1 flex flex-col h-screen overflow-hidden">
+                        {/* Main Content */}
+                        <main className="flex-1 flex flex-col h-screen overflow-hidden relative z-10">
 
-                            {/* Topbar */ }
-                            <header className="h-16 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 flex items-center justify-between px-4 md:px-6 z-20">
+                            {/* Topbar */}
+                            <header className="h-20 bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between px-6 lg:px-10 z-20 transition-colors">
                                 <div className="flex items-center gap-4">
-                                    <button onClick={ () => setIsSidebarOpen(!isSidebarOpen) } className="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
-                                        <Menu size={ 20 } />
+                                    <button onClick={ () => setIsSidebarOpen(!isSidebarOpen) } className="p-2.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors text-slate-500 dark:text-slate-400">
+                                        <Menu size={ 22 } />
                                     </button>
                                     <div className="relative hidden md:block">
-                                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={ 18 } />
-                                        <input type="text" placeholder="Search analytics..." className="pl-10 pr-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-64 text-sm" />
+                                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={ 18 } />
+                                        <input type="text" placeholder="Search analytics or orders..." className="pl-11 pr-4 py-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-800/50 border border-transparent focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-4 focus:ring-indigo-500/10 w-80 text-sm font-medium transition-all" />
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-3">
-                                    <button onClick={ () => setDarkMode(!darkMode) } className="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
-                                        { darkMode ? <Sun size={ 20 } /> : <Moon size={ 20 } /> }
+                                <div className="flex items-center gap-4">
+                                    <button onClick={ () => setDarkMode(!darkMode) } className="p-2.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors text-slate-500 dark:text-slate-400">
+                                        { darkMode ? <Sun size={ 22 } /> : <Moon size={ 22 } /> }
                                     </button>
-                                    <button className="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors relative">
-                                        <Bell size={ 20 } />
-                                        <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-slate-800"></span>
+                                    <button className="p-2.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors relative text-slate-500 dark:text-slate-400">
+                                        <Bell size={ 22 } />
+                                        <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
                                     </button>
-                                    <div className="w-8 h-8 bg-indigo-100 dark:bg-indigo-900/50 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-300 font-bold text-sm">
+                                    <div className="h-10 w-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-indigo-500/20 ml-2 cursor-pointer border-2 border-white dark:border-slate-800">
                                         DE
                                     </div>
                                 </div>
                             </header>
 
-                            {/* Content Scroll Area */ }
-                            <div className="flex-1 overflow-y-auto p-4 md:p-8">
-                                <div className="max-w-7xl mx-auto space-y-8">
+                            {/* Content Scroll Area */}
+                            <div className="flex-1 overflow-y-auto p-6 lg:p-10">
+                                <div className="max-w-7xl mx-auto space-y-10">
 
-                                    {/* Header */ }
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                    {/* Header Section */}
+                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                                         <div>
-                                            <h2 className="text-2xl font-bold">Dashboard Overview</h2>
-                                            <p className="text-slate-500 dark:text-slate-400">Welcome back, Devine! Here's what's happening today.</p>
+                                            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Dashboard Overview</h2>
+                                            <p className="text-slate-500 dark:text-slate-400 font-medium mt-1">Welcome back, Devine. Here is what is happening today.</p>
                                         </div>
-                                        <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium flex items-center gap-2 transition-colors">
-                                            <ArrowUpRight size={ 18 } /> Generate Report
+                                        <button className="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-indigo-500/25">
+                                            <ArrowUpRight size={ 20 } /> Generate Report
                                         </button>
                                     </div>
 
-                                    {/* Stats Grid */ }
+                                    {/* Stats Grid */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                                         { STATS.map((stat, idx) => <StatCard key={ idx } stat={ stat } />) }
                                     </div>
 
-                                    {/* Charts & Recent Orders */ }
+                                    {/* Charts & Recent Orders */}
                                     <div className="grid lg:grid-cols-3 gap-8">
 
-                                        {/* Chart Section */ }
-                                        <div className="lg:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
-                                            <div className="flex justify-between items-center mb-6">
-                                                <h3 className="font-bold text-lg">Revenue Analytics</h3>
-                                                <select className="bg-slate-100 dark:bg-slate-700 border-none text-sm rounded-lg px-3 py-1 focus:ring-0">
+                                        {/* Chart Section */}
+                                        <div className="lg:col-span-2 bg-white/80 dark:bg-slate-800/50 backdrop-blur-xl p-8 rounded-2xl shadow-sm border border-slate-200/50 dark:border-slate-700/50">
+                                            <div className="flex justify-between items-center mb-8">
+                                                <h3 className="font-extrabold text-xl text-slate-900 dark:text-white tracking-tight">Revenue Analytics</h3>
+                                                <select className="bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 text-sm font-semibold rounded-xl px-4 py-2 focus:ring-0 focus:outline-none cursor-pointer">
                                                     <option>This Year</option>
                                                     <option>Last Year</option>
                                                 </select>
                                             </div>
                                             <SimpleLineChart />
-                                            <div className="flex justify-between text-xs text-slate-400 mt-4 px-2">
+                                            <div className="flex justify-between text-sm font-semibold text-slate-400 mt-6 px-2">
                                                 <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
                                             </div>
                                         </div>
 
-                                        {/* Recent Orders */ }
-                                        <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col">
-                                            <h3 className="font-bold text-lg mb-6">Recent Orders</h3>
-                                            <div className="flex-1 overflow-y-auto space-y-4">
+                                        {/* Recent Orders */}
+                                        <div className="bg-white/80 dark:bg-slate-800/50 backdrop-blur-xl p-8 rounded-2xl shadow-sm border border-slate-200/50 dark:border-slate-700/50 flex flex-col">
+                                            <h3 className="font-extrabold text-xl text-slate-900 dark:text-white tracking-tight mb-8">Recent Orders</h3>
+                                            <div className="flex-1 overflow-y-auto space-y-3">
                                                 { RECENT_ORDERS.map((order) => (
-                                                    <div key={ order.id } className="flex items-center justify-between p-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 rounded-lg transition-colors cursor-pointer group">
-                                                        <div className="flex items-center gap-3">
-                                                            <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg flex items-center justify-center text-indigo-600 dark:text-indigo-400">
-                                                                <ShoppingBag size={ 18 } />
+                                                    <div key={ order.id } className="flex items-center justify-between p-4 bg-slate-50/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all cursor-pointer group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                                                        <div className="flex items-center gap-4">
+                                                            <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-sm border border-slate-200/50 dark:border-slate-700/50 group-hover:scale-105 transition-transform">
+                                                                <ShoppingBag size={ 20 } />
                                                             </div>
                                                             <div>
-                                                                <p className="font-medium text-sm">{ order.product }</p>
-                                                                <p className="text-xs text-slate-500 dark:text-slate-400">{ order.customer }</p>
+                                                                <p className="font-bold text-sm text-slate-900 dark:text-white">{ order.product }</p>
+                                                                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">{ order.customer }</p>
                                                             </div>
                                                         </div>
                                                         <div className="text-right">
-                                                            <p className="font-bold text-sm text-indigo-600 dark:text-indigo-400">{ order.amount }</p>
-                                                            <span className={ `text-[10px] px-2 py-0.5 rounded-full ${order.status === 'Completed' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' :
-                                                                order.status === 'Pending' ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400' :
-                                                                    order.status === 'Processing' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' :
-                                                                        'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
+                                                            <p className="font-extrabold text-sm text-slate-900 dark:text-white mb-1">{ order.amount }</p>
+                                                            <span className={ `text-xs font-bold px-2.5 py-1 rounded-md ${order.status === 'Completed' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400' :
+                                                                order.status === 'Pending' ? 'bg-amber-100 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400' :
+                                                                    order.status === 'Processing' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-400' :
+                                                                        'bg-rose-100 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400'
                                                                 }` }>
                                                                 { order.status }
                                                             </span>
@@ -255,7 +278,9 @@
                                                     </div>
                                                 )) }
                                             </div>
-                                            <button className="w-full mt-4 py-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors">View All Transactions</button>
+                                            <button className="w-full mt-6 py-3 text-sm font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 hover:bg-indigo-100 dark:hover:bg-indigo-500/20 rounded-xl transition-colors">
+                                                View All Transactions
+                                            </button>
                                         </div>
                                     </div>
 
