@@ -1,471 +1,679 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- SEO Meta Tags -->
-        <title>Devine Enukorah | Full Stack Developer Portfolio</title>
-        <meta name="description"
-            content="Portfolio of Devine Enukorah, a Full Stack Developer specializing in React, TypeScript, Node.js, and building scalable web applications. View my projects and contact me.">
-        <meta name="keywords"
-            content="Devine Enukorah, Full Stack Developer, React Developer, Web Development Portfolio, Software Engineer, Frontend, Backend">
-        <meta name="author" content="Devine Enukorah">
-        <meta name="robots" content="index, follow">
+    <!-- SEO Meta Tags -->
+    <title>Devine Enukorah | Full Stack Developer</title>
+    <meta name="description"
+        content="Portfolio of Devine Enukorah, a Full Stack Developer specializing in React, TypeScript, Node.js, and building scalable web applications.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        <!-- Open Graph / Facebook / LinkedIn -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://devineenukorah.github.io/">
-        <meta property="og:title" content="Devine Enukorah | Full Stack Developer Portfolio">
-        <meta property="og:description"
-            content="Portfolio of Devine Enukorah, a Full Stack Developer specializing in React, TypeScript, Node.js, and scalable web apps.">
-        <meta property="og:image" content="https://devine99.github.io/images/Bless-White.png">
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="https://devineenukorah.github.io/">
-        <meta property="twitter:title" content="Devine Enukorah | Full Stack Developer Portfolio">
-        <meta property="twitter:description"
-            content="Portfolio of Devine Enukorah, a Full Stack Developer specializing in React, TypeScript, Node.js, and scalable web apps.">
-        <meta property="twitter:image" content="https://devineenukorah.github.io/images/Bless-White.png">
-
-        <!-- 1. Tailwind CSS -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                darkMode: 'class',
-                theme: {
-                    extend: {
-                        animation: {
-                            blob: "blob 7s infinite",
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+                },
+                extend: {
+                    animation: {
+                        blob: "blob 7s infinite",
+                        float: "float 6s ease-in-out infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" }
                         },
-                        keyframes: {
-                            blob: {
-                                "0%": { transform: "translate(0px, 0px) scale(1)" },
-                                "33%": { transform: "translate(30px, -50px) scale(1.1)" },
-                                "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
-                                "100%": { transform: "translate(0px, 0px) scale(1)" }
-                            }
+                        float: {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-20px)" }
                         }
                     }
                 }
             }
-        </script>
-
-        <!-- 2. Import Map (Updated to prevent duplicate React instances) -->
-        <script type="importmap">
-        {
-            "imports": {
-                "react": "https://esm.sh/react@18.2.0",
-                "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?external=react",
-                "lucide-react": "https://esm.sh/lucide-react@0.344.0?external=react"
-            }
         }
-        </script>
+    </script>
 
-        <!-- 3. Babel (Pinned to a stable version) -->
-        <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
+    <!-- Import Map -->
+    <script type="importmap">
+    {
+        "imports": {
+            "react": "https://esm.sh/react@18.2.0",
+            "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?external=react",
+            "lucide-react": "https://esm.sh/lucide-react@0.344.0?external=react"
+        }
+    }
+    </script>
 
-        <style>
-            html {
-                scroll-behavior: smooth;
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+        }
+        html.dark ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 5px;
+        }
+        html.dark ::-webkit-scrollbar-thumb {
+            background: #334155; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        html.dark ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+
+        /* Base setup */
+        html { scroll-behavior: smooth; }
+        body { 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        *:focus-visible {
+            outline: 2px solid #6366f1;
+            outline-offset: 2px;
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 dark:bg-[#0B1120] dark:text-slate-50 transition-colors duration-500 selection:bg-indigo-500/30">
+
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+        import React, { useState, useEffect, useRef, memo } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import {
+            Github, Linkedin, Mail, ExternalLink, Code2, Terminal,
+            Cpu, Globe, Moon, Sun, Menu, X, ChevronDown,
+            Briefcase, User, Copy, Check, ArrowUp, Twitter, MessageCircle, Database, Layout
+        } from 'lucide-react';
+
+        // --- CONSTANTS & DATA ---
+        const EMAIL = "enukorahdevine@gmail.com";
+        const CURRENT_YEAR = new Date().getFullYear();
+
+        const NAV_LINKS = [
+            { name: 'About', href: '#about' },
+            { name: 'Skills', href: '#skills' },
+            { name: 'Projects', href: '#projects' },
+            { name: 'Contact', href: '#contact' },
+        ];
+
+        const SKILLS = [
+            { 
+                category: "Frontend", 
+                icon: Layout,
+                items: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Framer Motion"] 
+            },
+            { 
+                category: "Backend", 
+                icon: Database,
+                items: ["Node.js", "Python", "PostgreSQL", "GraphQL", "REST APIs"] 
+            },
+            { 
+                category: "Tools & Cloud", 
+                icon: Globe,
+                items: ["Git & GitHub", "Docker", "AWS", "CI/CD", "Figma"] 
+            },
+        ];
+
+        const PROJECTS = [
+            {
+                title: "E-Commerce Dashboard",
+                description: "A full-featured analytics dashboard for online retailers. Visualizes sales data, tracks inventory in real-time, and manages customer orders with a beautiful UI.",
+                tags: ["React", "D3.js", "Node.js", "MongoDB"],
+                githubLink: "https://github.com/devineenukorah",
+                demoLink: "./ecommerce_dashboard.html",
+            },
+            {
+                title: "TaskMaster AI",
+                description: "Productivity application that utilizes Natural Language Processing to automatically categorize, prioritize, and schedule user tasks efficiently.",
+                tags: ["Python", "FastAPI", "OpenAI API", "PostgreSQL"],
+                githubLink: "https://github.com/devineenukorah",
+                demoLink: "./taskmaster.html",
+            },
+            {
+                title: "Nebula Chat",
+                description: "Real-time messaging platform featuring end-to-end encryption, seamless file sharing capabilities, and presence indicators.",
+                tags: ["TypeScript", "Socket.io", "Redis", "React"],
+                githubLink: "https://github.com/devineenukorah",
+                demoLink: "./nebula_chat.html",
             }
+        ];
 
-            *:focus {
-                outline: 2px solid transparent;
-                outline-offset: 2px;
-            }
-        </style>
-    </head>
+        const SOCIALS = [
+            { icon: Github, href: "https://github.com/DevineEnukorah", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/DevineEnukorah", label: "LinkedIn" },
+            { icon: Twitter, href: "https://x.com/DevineEnukorah", label: "X (Twitter)" },
+            { icon: MessageCircle, href: "https://wa.me/qr/ETIGMAYLSHYJG1", label: "WhatsApp" },
+            { icon: Mail, href: `mailto:${EMAIL}`, label: "Email" },
+        ];
 
-    <body class="bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+        // --- UTILITY COMPONENTS ---
 
-        <div id="root"></div>
+        // Scroll Reveal Hook for modern entrance animations
+        const useScrollReveal = () => {
+            const ref = useRef(null);
+            useEffect(() => {
+                const observer = new IntersectionObserver(
+                    ([entry]) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    },
+                    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+                );
+                if (ref.current) observer.observe(ref.current);
+                return () => { if (ref.current) observer.unobserve(ref.current); };
+            }, []);
+            return ref;
+        };
 
-        <!-- 4. React Application Code -->
-        <script type="text/babel" data-type="module">
-            import React, { useState, useEffect, memo } from 'react';
-            import { createRoot } from 'react-dom/client';
-            import {
-                Github, Linkedin, Mail, ExternalLink, Code2, Terminal,
-                Cpu, Globe, Moon, Sun, Menu, X, ChevronDown,
-                Briefcase, User, Copy, Check, ArrowUp, Twitter, MessageCircle
-            } from 'lucide-react';
-
-            // Constants and Data
-            const EMAIL = "enukorahdevine@gmail.com";
-            const CURRENT_YEAR = new Date().getFullYear();
-
-            const NAV_LINKS = [
-                { name: 'About', href: '#about' },
-                { name: 'Skills', href: '#skills' },
-                { name: 'Projects', href: '#projects' },
-                { name: 'Contact', href: '#contact' },
-            ];
-
-            const SKILLS = [
-                { category: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Framer Motion"] },
-                { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "GraphQL", "REST APIs"] },
-                { category: "Tools & DevOps", items: ["Git & GitHub", "Docker", "AWS", "VS Code", "Figma"] },
-            ];
-
-            const PROJECTS = [
-                {
-                    title: "E-Commerce Dashboard",
-                    description: "A full-featured analytics dashboard for online retailers. Visualizes sales data, tracks inventory in real-time, and manages customer orders.",
-                    tags: ["React", "D3.js", "Node.js", "MongoDB"],
-                    githubLink: "https://github.com/devineenukorah",
-                    demoLink: "./ecommerce_dashboard.html",
-                    featured: true,
-                },
-                {
-                    title: "TaskMaster AI",
-                    description: "Productivity application that uses Natural Language Processing to automatically categorize and prioritize user tasks.",
-                    tags: ["Python", "FastAPI", "OpenAI API", "PostgreSQL"],
-                    githubLink: "https://github.com/devineenukorah",
-                    demoLink: "./taskmaster.html",
-                    featured: true,
-                },
-                {
-                    title: "Nebula Chat",
-                    description: "Real-time messaging platform featuring end-to-end encryption and seamless file sharing capabilities.",
-                    tags: ["TypeScript", "Socket.io", "Redis", "React"],
-                    githubLink: "https://github.com/devineenukorah",
-                    demoLink: "./nebula_chat.html",
-                    featured: false,
-                }
-            ];
-
-            const SOCIALS = [
-                { icon: Github, href: "https://github.com/DevineEnukorah", label: "GitHub" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/DevineEnukorah", label: "LinkedIn" },
-                { icon: Twitter, href: "https://x.com/DevineEnukorah", label: "X (Twitter)" },
-                { icon: MessageCircle, href: "https://wa.me/qr/ETIGMAYLSHYJG1", label: "WhatsApp" },
-                { icon: Mail, href: `mailto:${EMAIL}`, label: "Email" },
-            ];
-
-            // Components
-            const SectionTitle = memo(({ children, id }) => (
-                <div className="flex flex-col items-center mb-12 md:mb-16">
-                    <h2 id={ id } className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 text-center">
-                        { children }
-                    </h2>
-                    <div className="w-16 h-1.5 bg-indigo-600 rounded-full"></div>
+        const Reveal = ({ children, className = "", delay = 0 }) => {
+            const ref = useScrollReveal();
+            return (
+                <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+                    {children}
                 </div>
-            ));
+            );
+        };
 
-            const ProjectCard = memo(({ project }) => (
-                <div className="group relative bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700 flex flex-col h-full">
-                    <div className="h-8 bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 flex items-center px-4 space-x-2">
-                        <div className="w-3 h-3 rounded-full bg-red-400"></div>
+        const SectionTitle = memo(({ children, subtitle }) => (
+            <div className="flex flex-col items-center mb-16 md:mb-20 text-center">
+                {subtitle && (
+                    <span className="text-indigo-600 dark:text-indigo-400 font-semibold tracking-wider uppercase text-sm mb-3">
+                        {subtitle}
+                    </span>
+                )}
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
+                    {children}
+                </h2>
+                <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full"></div>
+            </div>
+        ));
+
+        const ProjectCard = memo(({ project, index }) => (
+            <Reveal delay={index * 150} className="h-full">
+                <div className="group relative bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-500 border border-slate-200/50 dark:border-slate-700/50 flex flex-col h-full backdrop-blur-sm transform hover:-translate-y-2">
+                    
+                    {/* Mac OS style header */}
+                    <div className="h-10 bg-slate-100/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-700/50 flex items-center px-4 space-x-2 backdrop-blur-md">
+                        <div className="w-3 h-3 rounded-full bg-rose-400"></div>
                         <div className="w-3 h-3 rounded-full bg-amber-400"></div>
                         <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
                     </div>
 
-                    <div className="p-6 flex-1 flex flex-col">
-                        <div className="flex justify-between items-start mb-4">
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                                { project.title }
+                    <div className="p-8 flex-1 flex flex-col">
+                        <div className="flex justify-between items-start mb-6">
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 tracking-tight">
+                                {project.title}
                             </h3>
-                            <div className="flex gap-2">
-                                <a href={ project.githubLink } target="_blank" rel="noopener noreferrer" className="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors" aria-label="View Source Code">
-                                    <Github size={ 20 } />
+                            <div className="flex gap-3">
+                                <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors transform hover:scale-110" aria-label="Source Code">
+                                    <Github size={22} />
                                 </a>
-                                <a href={ project.demoLink } target="_blank" rel="noopener noreferrer" className="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors" aria-label="View Live Demo">
-                                    <ExternalLink size={ 20 } />
+                                <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors transform hover:scale-110" aria-label="Live Demo">
+                                    <ExternalLink size={22} />
                                 </a>
                             </div>
                         </div>
 
-                        <p className="text-slate-600 dark:text-slate-300 mb-6 flex-1 leading-relaxed">
-                            { project.description }
+                        <p className="text-slate-600 dark:text-slate-400 mb-8 flex-1 leading-relaxed text-lg">
+                            {project.description}
                         </p>
 
-                        <div className="flex flex-wrap gap-2 mt-auto">
-                            { project.tags.map((tag) => (
-                                <span key={ tag } className="px-3 py-1 text-xs font-medium rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
-                                    { tag }
+                        <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-slate-700/50">
+                            {project.tags.map((tag) => (
+                                <span key={tag} className="px-3 py-1 text-sm font-medium rounded-md bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                                    {tag}
                                 </span>
-                            )) }
+                            ))}
                         </div>
                     </div>
                 </div>
-            ));
+            </Reveal>
+        ));
 
-            class ErrorBoundary extends React.Component {
-                constructor(props) {
-                    super(props);
-                    this.state = { hasError: false };
-                }
-                static getDerivedStateFromError(error) { return { hasError: true }; }
-                render() {
-                    if (this.state.hasError) {
-                        return <div className="text-center p-10 text-red-500">Something went wrong. Please refresh the page.</div>;
-                    }
-                    return this.props.children;
-                }
+        class ErrorBoundary extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { hasError: false };
             }
+            static getDerivedStateFromError(error) { return { hasError: true }; }
+            render() {
+                if (this.state.hasError) {
+                    return <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white font-mono">Something went wrong. Please refresh the page.</div>;
+                }
+                return this.props.children;
+            }
+        }
 
-            // Main Application
-            function App() {
-                const [darkMode, setDarkMode] = useState(false);
-                const [isMenuOpen, setIsMenuOpen] = useState(false);
-                const [activeSection, setActiveSection] = useState('');
-                const [isImageLoaded, setIsImageLoaded] = useState(false);
-                const [imageError, setIsImageError] = useState(false);
-                const [showBackToTop, setShowBackToTop] = useState(false);
-                const [emailCopied, setEmailCopied] = useState(false);
+        function App() {
+            // State
+            const [darkMode, setDarkMode] = useState(false);
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+            const [activeSection, setActiveSection] = useState('');
+            const [isImageLoaded, setIsImageLoaded] = useState(false);
+            const [imageError, setIsImageError] = useState(false);
+            const [showBackToTop, setShowBackToTop] = useState(false);
+            const [emailCopied, setEmailCopied] = useState(false);
+            const [scrolled, setScrolled] = useState(false);
 
-                useEffect(() => {
-                    let ticking = false;
-                    const handleScroll = () => {
-                        if (!ticking) {
-                            window.requestAnimationFrame(() => {
-                                if (window.scrollY > 300) setShowBackToTop(true);
-                                else setShowBackToTop(false);
+            // Effects
+            useEffect(() => {
+                // Check system preference on load
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    setDarkMode(true);
+                }
 
-                                const sections = NAV_LINKS.map(link => link.href.substring(1));
-                                const scrollPosition = window.scrollY + 200;
-                                for (const section of sections) {
-                                    const element = document.getElementById(section);
-                                    if (element && element.offsetTop <= scrollPosition && (element.offsetTop + element.offsetHeight) > scrollPosition) {
-                                        setActiveSection(section);
-                                        break;
-                                    }
-                                }
-                                ticking = false;
-                            });
-                            ticking = true;
+                const handleScroll = () => {
+                    setScrolled(window.scrollY > 50);
+                    setShowBackToTop(window.scrollY > 500);
+
+                    const sections = NAV_LINKS.map(link => link.href.substring(1));
+                    const scrollPosition = window.scrollY + 200;
+                    
+                    for (const section of sections) {
+                        const element = document.getElementById(section);
+                        if (element && element.offsetTop <= scrollPosition && (element.offsetTop + element.offsetHeight) > scrollPosition) {
+                            setActiveSection(section);
+                            break;
                         }
-                    };
-                    window.addEventListener('scroll', handleScroll);
-                    return () => window.removeEventListener('scroll', handleScroll);
-                }, []);
-
-                useEffect(() => {
-                    if (darkMode) document.documentElement.classList.add('dark');
-                    else document.documentElement.classList.remove('dark');
-                }, [darkMode]);
-
-                const handleNavClick = (e, href) => {
-                    e.preventDefault();
-                    setIsMenuOpen(false);
-                    const element = document.querySelector(href);
-                    if (element) {
-                        window.scrollTo({ top: element.offsetTop, behavior: "smooth" });
                     }
                 };
 
-                const copyEmail = () => {
-                    const textArea = document.createElement("textarea");
-                    textArea.value = EMAIL;
-                    textArea.style.position = "fixed";
-                    textArea.style.left = "-9999px";
-                    document.body.appendChild(textArea);
-                    textArea.focus();
-                    textArea.select();
-                    try {
-                        document.execCommand('copy');
-                        setEmailCopied(true);
-                        setTimeout(() => setEmailCopied(false), 2000);
-                    } catch (err) { console.error('Copy failed', err); }
-                    document.body.removeChild(textArea);
-                };
+                window.addEventListener('scroll', handleScroll, { passive: true });
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
 
-                const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+            useEffect(() => {
+                if (darkMode) document.documentElement.classList.add('dark');
+                else document.documentElement.classList.remove('dark');
+            }, [darkMode]);
 
-                return (
-                    <ErrorBoundary>
-                        <div className={ `min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-slate-900' : 'bg-slate-50'}` }>
+            // Handlers
+            const handleNavClick = (e, href) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                const element = document.querySelector(href);
+                if (element) {
+                    window.scrollTo({ top: element.offsetTop - 80, behavior: "smooth" });
+                }
+            };
 
-                            {/* Navigation */}
-                            <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-                                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                    <div className="flex justify-between items-center h-16">
-                                        <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={ scrollToTop }>
-                                            <div className="bg-indigo-600 p-1.5 rounded-lg">
-                                                <Code2 className="text-white w-6 h-6" />
-                                            </div>
-                                            <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">Devine's Portfolio</span>
+            const copyEmail = () => {
+                const textArea = document.createElement("textarea");
+                textArea.value = EMAIL;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-9999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    setEmailCopied(true);
+                    setTimeout(() => setEmailCopied(false), 2000);
+                } catch (err) { console.error('Copy failed', err); }
+                document.body.removeChild(textArea);
+            };
+
+            const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            return (
+                <ErrorBoundary>
+                    <div className="relative overflow-hidden">
+                        
+                        {/* Background Ambient Gradients */}
+                        <div className="fixed inset-0 z-[-1] pointer-events-none transition-opacity duration-700">
+                            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-500/10 dark:bg-indigo-600/20 blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob"></div>
+                            <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/10 dark:bg-purple-600/20 blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob" style={{ animationDelay: '2s' }}></div>
+                            <div className="absolute bottom-[-20%] left-[20%] w-[40%] h-[40%] rounded-full bg-blue-500/10 dark:bg-blue-600/20 blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob" style={{ animationDelay: '4s' }}></div>
+                        </div>
+
+                        {}
+                        {/* Navigation */}
+                        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 py-3' : 'bg-transparent py-5'}`}>
+                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <div className="flex justify-between items-center">
+                                    
+                                    {/* Logo */}
+                                    <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer group" onClick={scrollToTop}>
+                                        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-2 rounded-xl shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all duration-300 transform group-hover:scale-105">
+                                            <Code2 className="text-white w-5 h-5 md:w-6 md:h-6" />
                                         </div>
+                                        <span className="font-extrabold text-xl md:text-2xl tracking-tight text-slate-900 dark:text-white">
+                                            Devine<span className="text-indigo-600 dark:text-indigo-400">.</span>
+                                        </span>
+                                    </div>
 
-                                        <div className="hidden md:flex items-center space-x-8">
-                                            { NAV_LINKS.map((link) => (
-                                                <a key={ link.name } href={ link.href } onClick={ (e) => handleNavClick(e, link.href) }
-                                                    className={ `text-sm font-medium transition-colors duration-200 ${activeSection === link.href.substring(1)
-                                                        ? 'text-indigo-600 dark:text-indigo-400'
-                                                        : 'text-slate-600 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-white'
-                                                        }` }>
-                                                    { link.name }
+                                    {/* Desktop Nav */}
+                                    <div className="hidden md:flex items-center space-x-1">
+                                        <div className="flex items-center space-x-2 bg-slate-100/50 dark:bg-slate-800/50 rounded-full px-3 py-1.5 border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-sm mr-4">
+                                            {NAV_LINKS.map((link) => (
+                                                <a key={link.name} href={link.href} onClick={(e) => handleNavClick(e, link.href)}
+                                                    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                                                        activeSection === link.href.substring(1)
+                                                            ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-sm'
+                                                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+                                                    }`}>
+                                                    {link.name}
                                                 </a>
-                                            )) }
-                                            <button onClick={ () => setDarkMode(!darkMode) } aria-label="Toggle Dark Mode" className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                                                { darkMode ? <Sun size={ 20 } /> : <Moon size={ 20 } /> }
-                                            </button>
+                                            ))}
                                         </div>
-
-                                        <div className="flex md:hidden items-center gap-4">
-                                            <button onClick={ () => setDarkMode(!darkMode) } aria-label="Toggle Dark Mode" className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                                                { darkMode ? <Sun size={ 20 } /> : <Moon size={ 20 } /> }
-                                            </button>
-                                            <button onClick={ () => setIsMenuOpen(!isMenuOpen) } aria-label="Toggle Menu" className="text-slate-600 dark:text-slate-300 p-2">
-                                                { isMenuOpen ? <X size={ 24 } /> : <Menu size={ 24 } /> }
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                { isMenuOpen && (
-                                    <div className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-                                        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                                            { NAV_LINKS.map((link) => (
-                                                <a key={ link.name } href={ link.href } onClick={ (e) => handleNavClick(e, link.href) }
-                                                    className="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800">
-                                                    { link.name }
-                                                </a>
-                                            )) }
-                                        </div>
-                                    </div>
-                                ) }
-                            </nav>
-
-                            {/* Hero */}
-                            <section className="pt-32 pb-16 md:pt-48 md:pb-32 px-4 max-w-7xl mx-auto">
-                                <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-                                    <div className="flex-1 text-center md:text-left space-y-6">
-                                        <div className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-sm font-medium mb-4">
-                                            <span className="flex h-2 w-2 rounded-full bg-indigo-600 dark:bg-indigo-400 mr-2"></span>
-                                            Available for hire
-                                        </div>
-                                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-white tracking-tight">
-                                            Building digital <br />
-                                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">experiences</span>
-                                            { " " }that matter.
-                                        </h1>
-                                        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-                                            Hi, I'm Devine Enukorah. A passionate Full Stack Developer crafting robust and scalable web applications.
-                                        </p>
-                                        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-                                            <a href="#projects" className="px-8 py-4 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-lg transition-all hover:-translate-y-0.5" onClick={ (e) => handleNavClick(e, '#projects') }>View My Work</a>
-                                            <a href="#contact" className="px-8 py-4 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all" onClick={ (e) => handleNavClick(e, '#contact') }>Contact Me</a>
-                                        </div>
-                                        <div className="pt-8 flex items-center justify-center md:justify-start gap-6">
-                                            { SOCIALS.map((social) => (
-                                                <a key={ social.label } href={ social.href } target="_blank" rel="noopener noreferrer" aria-label={ social.label } className="text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors transform hover:scale-110 p-2">
-                                                    <social.icon size={ 24 } />
-                                                </a>
-                                            )) }
-                                        </div>
-                                    </div>
-                                    <div className="flex-1 relative w-full max-w-md md:max-w-full">
-                                        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-20"></div>
-                                        <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-20" style={ { animationDelay: '2s' } }></div>
-                                        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-20" style={ { animationDelay: '4s' } }></div>
-                                        <div className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-2xl">
-                                            <div className="space-y-6 font-mono text-sm">
-                                                <div className="flex items-center gap-2 text-slate-400 border-b border-slate-200 dark:border-slate-700 pb-4">
-                                                    <Terminal size={ 16 } /> <span>developer_profile.json</span>
-                                                </div>
-                                                <div className="space-y-3 text-slate-600 dark:text-slate-300">
-                                                    <p><span className="text-purple-600 dark:text-purple-400">const</span> <span className="text-indigo-600 dark:text-indigo-400">developer</span> = { '{' }</p>
-                                                    <p className="pl-4">name: <span className="text-green-600 dark:text-green-400">"Devine Enukorah"</span>,</p>
-                                                    <p className="pl-4">status: <span className="text-amber-600 dark:text-amber-400">"Building things"</span></p>
-                                                    <p>{ '};' }</p>
-                                                </div>Q
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-                                    <ChevronDown className="text-slate-400" size={ 24 } />
-                                </div>
-                            </section>
-
-                            {/* About */}
-                            <section id="about" className="py-20 bg-white dark:bg-slate-800/50 scroll-mt-28">
-                                <div className="max-w-7xl mx-auto px-4">
-                                    <SectionTitle id="about-title">About Me</SectionTitle>
-                                    <div className="grid md:grid-cols-3 gap-12 items-center">
-                                        <div className="md:col-span-1">
-                                            <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700 rotate-3 hover:rotate-0 transition-all duration-300 shadow-xl">
-                                                <div className="absolute inset-0 flex items-center justify-center text-slate-400"><User size={ 64 } /></div>
-                                                <img src={ darkMode ? "./images/Bless-Dark.png" : "./images/Bless-White.png" } alt="Devine's Profile Picture" className={ `absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}` } onLoad={ () => setIsImageLoaded(true) } onError={ imageError ? null : () => setIsImageError(true) } />
-                                            </div>
-                                        </div>
-                                        <div className="md:col-span-2 space-y-6 text-lg text-slate-600 dark:text-slate-300">
-                                            <p>I started my coding journey during standard "100 Days of Code" challenges, but what began as a curiosity quickly turned into a career obsession for programming.</p>
-                                            <div className="grid grid-cols-2 gap-6 pt-4">
-                                                <div><h4 className="font-bold text-slate-900 dark:text-white mb-2">Experience</h4><p className="text-sm">2+ Years Development</p></div>
-                                                <div><h4 className="font-bold text-slate-900 dark:text-white mb-2">Location</h4><p className="text-sm">Remote / Hybrid</p></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-
-                            {/* Skills */}
-                            <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-900 scroll-mt-28">
-                                <div className="max-w-7xl mx-auto px-4">
-                                    <SectionTitle id="skills-title">Technical Skills</SectionTitle>
-                                    <div className="grid md:grid-cols-3 gap-8">
-                                        { SKILLS.map((skillGroup, idx) => (
-                                            <div key={ skillGroup.category } className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
-                                                <div className="flex items-center gap-3 mb-6">
-                                                    <div className="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg text-indigo-600 dark:text-indigo-400">
-                                                        { idx === 0 ? <Globe size={ 24 } /> : idx === 1 ? <Cpu size={ 24 } /> : <Briefcase size={ 24 } /> }
-                                                    </div>
-                                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">{ skillGroup.category }</h3>
-                                                </div>
-                                                <div className="flex flex-wrap gap-2">
-                                                    { skillGroup.items.map((skill) => (
-                                                        <span key={ skill } className="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-md text-sm font-medium">{ skill }</span>
-                                                    )) }
-                                                </div>
-                                            </div>
-                                        )) }
-                                    </div>
-                                </div>
-                            </section>
-
-                            {/* Projects */}
-                            <section id="projects" className="py-20 bg-white dark:bg-slate-800/50 scroll-mt-28">
-                                <div className="max-w-7xl mx-auto px-4">
-                                    <SectionTitle id="projects-title">Featured Projects</SectionTitle>
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                        { PROJECTS.map((project, index) => <ProjectCard key={ index } project={ project } />) }
-                                    </div>
-                                </div>
-                            </section>
-
-                            {/* Contact */}
-                            <section id="contact" className="py-20 bg-slate-900 text-white relative overflow-hidden scroll-mt-28">
-                                <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-                                    <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to start a project?</h2>
-                                    <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-                                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                                        <a href={ `mailto:${EMAIL}` } className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg"><Mail size={ 20 } /> Say Hello</a>
-                                        <button onClick={ copyEmail } className="inline-flex items-center gap-2 px-8 py-4 bg-slate-800 border border-slate-700 hover:bg-slate-700 rounded-full text-lg font-semibold transition-all hover:scale-105 text-slate-300">
-                                            { emailCopied ? <Check size={ 20 } className="text-green-400" /> : <Copy size={ 20 } /> } { emailCopied ? "Copied!" : "Copy Email" }
+                                        <button onClick={() => setDarkMode(!darkMode)} aria-label="Toggle Theme" className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-all transform hover:scale-110">
+                                            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
                                         </button>
                                     </div>
-                                    <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-center items-center gap-4 text-slate-400 text-sm">
-                                        <p>&copy; { CURRENT_YEAR } Devine's Portfolio❤️. Built with React & Tailwind.</p>
+
+                                    {/* Mobile Nav Toggle */}
+                                    <div className="flex md:hidden items-center gap-3">
+                                        <button onClick={() => setDarkMode(!darkMode)} aria-label="Toggle Theme" className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                                        </button>
+                                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu" className="p-2 text-slate-900 dark:text-white">
+                                            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                                        </button>
                                     </div>
                                 </div>
-                            </section>
+                            </div>
 
-                            <button onClick={ scrollToTop } className={ `fixed bottom-8 right-8 p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 transition-all duration-300 z-40 ${showBackToTop ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}` }><ArrowUp size={ 24 } /></button>
-                        </div>
-                    </ErrorBoundary>
-                );
-            }
+                            {/* Mobile Menu Dropdown */}
+                            <div className={`md:hidden absolute w-full transition-all duration-300 origin-top ${isMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}`}>
+                                <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-2 shadow-2xl">
+                                    {NAV_LINKS.map((link) => (
+                                        <a key={link.name} href={link.href} onClick={(e) => handleNavClick(e, link.href)}
+                                            className="block px-4 py-4 rounded-xl text-lg font-semibold text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-white transition-colors">
+                                            {link.name}
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        </nav>
 
-            // Mount Application
-            const container = document.getElementById('root');
-            const root = createRoot(container);
-            root.render(<App />);
-        </script>
-    </body>
+                        {}
+                        {/* Hero */}
+                        <section className="relative min-h-[90vh] flex items-center pt-20 px-4 max-w-7xl mx-auto">
+                            <div className="flex flex-col lg:flex-row items-center justify-between gap-16 w-full">
+                                
+                                <Reveal delay={100} className="flex-1 text-center lg:text-left z-10 w-full">
+                                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-300 text-sm font-semibold mb-8 shadow-sm">
+                                        <span className="relative flex h-3 w-3 mr-3">
+                                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                                          <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+                                        </span>
+                                        Available for new opportunities
+                                    </div>
+                                    
+                                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-6">
+                                        Building digital <br className="hidden sm:block" />
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                                            experiences
+                                        </span>.
+                                    </h1>
+                                    
+                                    <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium mb-10">
+                                        Hi, I'm <span className="text-slate-900 dark:text-white font-bold">Devine Enukorah</span>. A full-stack engineer passionate about crafting robust, scalable, and visually stunning web applications.
+                                    </p>
+                                    
+                                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                                        <a href="#projects" onClick={(e) => handleNavClick(e, '#projects')} className="group px-8 py-4 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-lg hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white transition-all duration-300 shadow-xl shadow-slate-900/20 dark:shadow-white/10 hover:shadow-indigo-500/25 flex items-center justify-center gap-2">
+                                            View My Work
+                                            <ArrowUp className="w-5 h-5 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        </a>
+                                        <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="px-8 py-4 rounded-xl bg-white dark:bg-slate-800/50 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-700 font-bold text-lg hover:border-indigo-500 dark:hover:border-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 flex items-center justify-center">
+                                            Contact Me
+                                        </a>
+                                    </div>
+                                    
+                                    <div className="mt-12 flex items-center justify-center lg:justify-start gap-5">
+                                        {SOCIALS.map((social) => (
+                                            <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} 
+                                                className="bg-white dark:bg-slate-800 p-3 rounded-full text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 shadow-sm border border-slate-100 dark:border-slate-700/50 transition-all transform hover:scale-110 hover:-translate-y-1">
+                                                <social.icon size={22} />
+                                            </a>
+                                        ))}
+                                    </div>
+                                </Reveal>
 
+                                <Reveal delay={300} className="flex-1 relative w-full max-w-lg lg:max-w-full hidden md:block z-10">
+                                    <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-2xl rounded-3xl p-1 shadow-2xl border border-white/40 dark:border-white/10 animate-float">
+                                        <div className="bg-slate-50 dark:bg-slate-900 rounded-[1.4rem] p-8 overflow-hidden relative">
+                                            {/* Code Editor Mockup */}
+                                            <div className="flex items-center gap-2 mb-6 border-b border-slate-200 dark:border-slate-800 pb-4">
+                                                <div className="flex gap-2">
+                                                    <div className="w-3 h-3 rounded-full bg-rose-500"></div>
+                                                    <div className="w-3 h-3 rounded-full bg-amber-500"></div>
+                                                    <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                                                </div>
+                                                <div className="mx-auto flex items-center gap-2 text-slate-400 text-xs font-mono bg-slate-200/50 dark:bg-slate-800/50 px-3 py-1 rounded-md">
+                                                    <Terminal size={14} /> developer.ts
+                                                </div>
+                                            </div>
+                                            <div className="space-y-4 font-mono text-[15px] leading-relaxed">
+                                                <p className="text-slate-600 dark:text-slate-400"><span className="text-purple-600 dark:text-purple-400">import</span> { '{' } <span className="text-indigo-600 dark:text-indigo-400">Developer</span> { '}' } <span className="text-purple-600 dark:text-purple-400">from</span> <span className="text-emerald-600 dark:text-emerald-400">'@world/engineers'</span>;</p>
+                                                <br/>
+                                                <p className="text-slate-600 dark:text-slate-400"><span className="text-purple-600 dark:text-purple-400">const</span> <span className="text-blue-600 dark:text-blue-400">Devine</span>: <span className="text-amber-600 dark:text-amber-400">Developer</span> = { '{' }</p>
+                                                <div className="pl-6 space-y-2">
+                                                    <p className="text-slate-600 dark:text-slate-300">name: <span className="text-emerald-600 dark:text-emerald-400">"Devine Enukorah"</span>,</p>
+                                                    <p className="text-slate-600 dark:text-slate-300">role: <span className="text-emerald-600 dark:text-emerald-400">"Full Stack Engineer"</span>,</p>
+                                                    <p className="text-slate-600 dark:text-slate-300">skills: [<span className="text-emerald-600 dark:text-emerald-400">"React"</span>, <span className="text-emerald-600 dark:text-emerald-400">"Node.js"</span>, <span className="text-emerald-600 dark:text-emerald-400">"TypeScript"</span>],</p>
+                                                    <p className="text-slate-600 dark:text-slate-300 flex items-center gap-2">passion: <span className="text-rose-500">"Building great UI/UX"</span> <span className="text-xl">🚀</span></p>
+                                                </div>
+                                                <p className="text-slate-600 dark:text-slate-400">{ '};' }</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Reveal>
+
+                            </div>
+                            
+                            {/* Scroll Down Indicator */}
+                            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block text-slate-400">
+                                <ChevronDown size={32} />
+                            </div>
+                        </section>
+
+                        {}
+                        {/* About */}
+                        <section id="about" className="py-24 relative">
+                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <Reveal>
+                                    <SectionTitle subtitle="Get to know me">About Me</SectionTitle>
+                                </Reveal>
+                                
+                                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mt-10">
+                                    <Reveal delay={100} className="lg:col-span-5 relative group perspective">
+                                        <div className="relative w-full max-w-sm mx-auto aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl transition-transform duration-700 transform group-hover:rotate-y-12">
+                                            {/* Accent Border Backdrop */}
+                                            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 opacity-20 dark:opacity-40"></div>
+                                            
+                                            <div className="absolute inset-2 bg-slate-200 dark:bg-slate-800 rounded-2xl overflow-hidden flex items-center justify-center">
+                                                {!isImageLoaded && <User size={64} className="text-slate-400 animate-pulse" />}
+                                                <img 
+                                                    src={darkMode ? "./images/Bless-Dark.png" : "./images/Bless-White.png"} 
+                                                    alt="Devine Enukorah" 
+                                                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`} 
+                                                    onLoad={() => setIsImageLoaded(true)} 
+                                                    onError={imageError ? null : () => setIsImageError(true)} 
+                                                />
+                                            </div>
+                                        </div>
+                                        {/* Decorative Dots */}
+                                        <div className="absolute -z-10 top-10 -left-10 w-32 h-32 bg-[radial-gradient(#cbd5e1_2px,transparent_2px)] dark:bg-[radial-gradient(#334155_2px,transparent_2px)] [background-size:16px_16px] opacity-60"></div>
+                                    </Reveal>
+
+                                    <Reveal delay={250} className="lg:col-span-7 space-y-8">
+                                        <h3 className="text-3xl font-bold text-slate-900 dark:text-white">
+                                            I code, I create, I solve.
+                                        </h3>
+                                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                                            My journey began with standard "100 Days of Code" challenges, but what started as a simple curiosity quickly evolved into a full-blown career obsession. Today, I build comprehensive web applications that are as functionally robust as they are visually engaging.
+                                        </p>
+                                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                                            I specialize in bridging the gap between design and engineering, ensuring that the final product provides a seamless experience for end-users while maintaining clean, maintainable codebases under the hood.
+                                        </p>
+                                        
+                                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+                                            <div>
+                                                <p className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 mb-2">2+</p>
+                                                <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Years Exp.</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 mb-2">20+</p>
+                                                <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Projects</p>
+                                            </div>
+                                            <div className="hidden sm:block">
+                                                <p className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 mb-2">100%</p>
+                                                <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Commitment</p>
+                                            </div>
+                                        </div>
+                                    </Reveal>
+                                </div>
+                            </div>
+                        </section>
+
+                        {}
+                        {/* Skills */}
+                        <section id="skills" className="py-24 bg-slate-100/50 dark:bg-slate-900/50 relative border-y border-slate-200/50 dark:border-slate-800/50">
+                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <Reveal>
+                                    <SectionTitle subtitle="What I do best">Technical Arsenal</SectionTitle>
+                                </Reveal>
+                                
+                                <div className="grid md:grid-cols-3 gap-8 mt-10">
+                                    {SKILLS.map((skillGroup, idx) => (
+                                        <Reveal key={skillGroup.category} delay={idx * 150}>
+                                            <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 h-full shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-200 dark:border-slate-700 hover:-translate-y-2 transition-transform duration-300">
+                                                <div className="flex flex-col items-center text-center mb-8">
+                                                    <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 rotate-3">
+                                                        <skillGroup.icon size={32} />
+                                                    </div>
+                                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{skillGroup.category}</h3>
+                                                </div>
+                                                <div className="flex flex-wrap justify-center gap-3">
+                                                    {skillGroup.items.map((skill) => (
+                                                        <span key={skill} className="px-4 py-2 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-semibold border border-slate-200 dark:border-slate-700 shadow-sm">
+                                                            {skill}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </Reveal>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+
+                        {}
+                        {/* Projects */}
+                        <section id="projects" className="py-24 relative">
+                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <Reveal>
+                                    <SectionTitle subtitle="Some of my recent work">Featured Projects</SectionTitle>
+                                </Reveal>
+                                
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                                    {PROJECTS.map((project, index) => (
+                                        <ProjectCard key={index} project={project} index={index} />
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+
+                        {}
+                        {/* Contact */}
+                        <section id="contact" className="py-24 relative overflow-hidden">
+                            {/* Dark/Gradient Background strictly for Contact */}
+                            <div className="absolute inset-0 bg-slate-900 dark:bg-black">
+                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-indigo-900/40"></div>
+                            </div>
+
+                            <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+                                <Reveal>
+                                    <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">Ready to collaborate?</h2>
+                                    <p className="text-slate-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                                        I'm actively seeking new opportunities and open to exciting projects. Whether you have a question or just want to connect, my inbox is always open.
+                                    </p>
+                                    
+                                    <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                                        <a href={`mailto:${EMAIL}`} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-lg font-bold transition-all duration-300 shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/50 transform hover:-translate-y-1">
+                                            <Mail size={22} /> Say Hello
+                                        </a>
+                                        <button onClick={copyEmail} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 rounded-xl text-lg font-bold transition-all duration-300 transform hover:-translate-y-1">
+                                            {emailCopied ? <Check size={22} className="text-green-400" /> : <Copy size={22} />} 
+                                            {emailCopied ? "Email Copied!" : "Copy Email"}
+                                        </button>
+                                    </div>
+                                </Reveal>
+
+                                <div className="mt-24 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                                    <p className="text-slate-400 font-medium">&copy; {CURRENT_YEAR} Devine Enukorah. All rights reserved.</p>
+                                    <div className="flex gap-4">
+                                        {SOCIALS.map((social) => (
+                                            <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
+                                                <span className="sr-only">{social.label}</span>
+                                                <social.icon size={20} />
+                                            </a>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* Back to top button */}
+                        <button 
+                            onClick={scrollToTop} 
+                            aria-label="Scroll to top"
+                            className={`fixed bottom-8 right-8 p-4 rounded-2xl bg-indigo-600 text-white shadow-xl shadow-indigo-500/30 hover:bg-indigo-500 hover:-translate-y-2 transition-all duration-300 z-40 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 pointer-events-none'}`}
+                        >
+                            <ArrowUp size={24} strokeWidth={2.5} />
+                        </button>
+
+                    </div>
+                </ErrorBoundary>
+            );
+        }
+
+        // Mount Application
+        const container = document.getElementById('root');
+        const root = createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
 </html>
