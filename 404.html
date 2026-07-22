@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="color-scheme" content="dark light">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'none'; form-action 'self'; upgrade-insecure-requests">
   <title>Page not found | Devine Enukorah</title>
+  <meta name="description" content="The requested portfolio page could not be found.">
   <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/production.css">
   <script src="./assets/js/theme.js"></script>
 </head>
 <body class="error-page">
@@ -16,7 +18,7 @@
     <p class="eyebrow">Error 404</p>
     <h1>That page does not exist.</h1>
     <p>The address may have changed, or the link may be incomplete.</p>
-    <a class="button button-primary" href="/professional-portfolio/">Return to the portfolio</a>
+    <a class="button button-primary" href="./">Return to the portfolio</a>
   </main>
 </body>
 </html>

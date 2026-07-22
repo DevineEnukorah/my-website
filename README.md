@@ -1,5 +1,7 @@
 # Devine Enukorah Portfolio
 
+[![Validate and deploy portfolio](https://github.com/DevineEnukorah/professional-portfolio/actions/workflows/pages.yml/badge.svg)](https://github.com/DevineEnukorah/professional-portfolio/actions/workflows/pages.yml)
+
 Production-oriented professional portfolio for Devine Enukorah, an AI Automation Engineer and Workflow Consultant based in Abuja, Nigeria.
 
 The site presents reliable AI automation systems that connect AI models, APIs, business applications, deterministic rules, structured data, and human-review processes.
@@ -34,9 +36,9 @@ The portfolio intentionally uses a zero-runtime-dependency static architecture:
 - Modern CSS with responsive layouts and light/dark themes
 - Small, dependency-free JavaScript modules
 - Content Security Policy restricting assets to the same origin
-- Progressive enhancement, so core content remains visible without JavaScript
+- Progressive enhancement, so core content remains visible if JavaScript is unavailable or fails to initialize
 - Reduced-motion support
-- Keyboard-accessible navigation and controls
+- Keyboard-accessible navigation, focus management, and controls
 - Open Graph and Twitter metadata
 - Web app manifest, favicon, robots file, sitemap, and custom 404 page
 - Automated validation and GitHub Pages deployment through GitHub Actions
@@ -51,7 +53,9 @@ This architecture removes browser-side Babel compilation, runtime Tailwind gener
 │   ├── dependabot.yml
 │   └── workflows/pages.yml
 ├── assets/
-│   ├── css/styles.css
+│   ├── css/
+│   │   ├── styles.css
+│   │   └── production.css
 │   ├── icons/favicon.svg
 │   └── js/
 │       ├── main.js
@@ -87,7 +91,7 @@ Opening `index.html` directly may limit clipboard functionality because some bro
 
 ## Validation
 
-Run the built-in site checks:
+Run the built-in site checks. The validator checks HTML semantics, local references, CSP directives, metadata, sitemap and manifest integrity, JavaScript safety rules, and deployment controls:
 
 ```bash
 python scripts/validate_site.py

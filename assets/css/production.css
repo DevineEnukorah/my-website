@@ -1,0 +1,93 @@
+/* Production hardening and compatibility overrides. */
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Show the icon for the action the theme button will perform. */
+.theme-icon-sun {
+  display: none;
+}
+
+.theme-icon-moon {
+  display: block;
+}
+
+html[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
+
+html[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+
+/* Avoid relying only on :has() for the open-menu header treatment. */
+body.menu-open .site-header {
+  border-color: var(--border);
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+.mobile-nav[hidden] {
+  display: none;
+}
+
+/* Content stays visible when the enhancement script fails to initialize. */
+.js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(1.3rem);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+@media (hover: none) {
+  .button:hover,
+  .icon-button:hover,
+  .social-links a:hover,
+  .project-link:hover {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .brand-mark,
+  .button-primary,
+  .back-to-top {
+    border: 1px solid ButtonText;
+  }
+
+  .hero h1 span {
+    color: LinkText;
+    background: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
