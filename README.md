@@ -1,66 +1,75 @@
-# Professional Developer Portfolio
+Devine Enukorah Portfolio
 
-A modern, responsive, and fully accessible portfolio website built with React, Tailwind CSS, and Lucide Icons. Designed to showcase projects, skills, and experience for job applications in the tech industry.
+Professional portfolio website for Devine Enukorah, an AI Automation Engineer and Workflow Consultant based in Abuja, Nigeria.
 
-🚀 Features
+The website positions Devine around reliable AI automation systems that connect AI models, APIs, business applications, deterministic rules, structured data, and human-review processes.
 
-Single File Architecture: Runs entirely in the browser without complex build steps.
+Featured Projects
 
-Dark Mode Support: Seamlessly toggles between light and dark themes.
+AI Lead Qualification and Reply Assistant
 
-Responsive Design: Fully optimized for mobile, tablet, and desktop views.
+An n8n-based lead-processing system that validates inbound data, uses Gemini for constrained analysis, calculates scores deterministically, identifies stated pain points, and produces a review-ready follow-up response.
 
-Project Showcase: Featured section for highlighting GitHub projects and live demos.
+Repository: https://github.com/DevineEnukorah/n8n-gemini-lead-qualifier
 
-SEO Optimized: Includes meta tags, Open Graph support, and semantic HTML.
+Nigerian Legal Information Project
 
-Accessibility: ARIA labels, focus management, and keyboard navigation support.
+An early-stage legal-technology project exploring reliable retrieval of Nigerian legislation, amendments, and authoritative legal sources.
 
-🛠️ Tech Stack
+The project is designed as an information and research assistant, not as a replacement for qualified legal professionals.
 
-Core: React 18 (via CDN)
+AI Workflow Security Toolkit
 
-Styling: Tailwind CSS (via CDN)
+A focused toolkit for safer automation workflows, covering input limits, structured-output validation, prompt-injection detection, controlled failures, confidence scoring, and human-review flags.
 
-Icons: Lucide React
+Capabilities Presented
 
-Transpiler: Babel (standalone)
+AI-powered workflow automation
 
-📂 File Structure
+n8n workflow development
 
-/
-├── images/
-│   └── Bless.png       # Profile picture
-├── index.html          # Main application file (rename portfolio.html to index.html for GitHub Pages)
-├── robots.txt          # SEO crawling instructions
-└── README.md           # Project documentation
+REST API and webhook integrations
 
-🚀 How to Run Locally
+Structured LLM applications
 
-Clone this repository or download the files.
+Input and output validation
 
-Ensure you have an images folder with your profile picture inside.
+Prompt-injection detection
 
-Open index.html (or portfolio.html) directly in your browser.
+Controlled error handling
 
-Note: For the best experience, use "Open with Live Server" in VS Code.
+Confidence scoring
 
-🌐 Deployment (GitHub Pages)
+Human-in-the-loop review
 
-Push this code to a GitHub repository.
+Technology
 
-Go to Settings > Pages.
+React 18 via CDN
 
-Select the main branch as the source.
+Tailwind CSS via CDN
 
-Your site will be live at <https://devineenukorah.github.io/repo-name>.
+Lucide React icons
 
-👤 Author
+Babel Standalone
+
+GitHub Pages
+
+Local Use
+
+Clone the repository and open index.html in a browser.
+
+For local development, a static development server such as the VS Code Live Server extension can be used.
+
+Deployment
+
+The website is deployed through GitHub Pages from the main branch:
+
+https://devineenukorah.github.io/my-website/
+
+Author
 
 Devine Enukorah
 
-GitHub
+GitHub: https://github.com/DevineEnukorah
 
-LinkedIn
-
-Built with ❤️ for the modern web.
+LinkedIn: https://www.linkedin.com/in/DevineEnukorah
