@@ -52,7 +52,7 @@ For local development, a static development server such as the VS Code Live Serv
 
 The website is deployed through GitHub Pages from the `main` branch:
 
-<https://devineenukorah.github.io/my-website/>
+<https://devineenukorah.github.io/professional-portfolio/>
 
 ## Author
 
