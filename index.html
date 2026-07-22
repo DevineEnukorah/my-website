@@ -1,716 +1,350 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'none'; form-action 'self'; upgrade-insecure-requests">
 
-    <title>Devine Enukorah | AI Automation Engineer & Workflow Consultant</title>
-    <meta name="description" content="Portfolio of Devine Enukorah, an AI Automation Engineer and Workflow Consultant building reliable n8n, API, and LLM systems for business operations.">
-    <meta name="author" content="Devine Enukorah">
-    <meta property="og:title" content="Devine Enukorah | AI Automation Engineer & Workflow Consultant">
-    <meta property="og:description" content="Reliable AI automation, API integrations, structured LLM workflows, and human-review systems for business operations.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://devineenukorah.github.io/professional-portfolio/">
-    <link rel="canonical" href="https://devineenukorah.github.io/professional-portfolio/">
+  <title>Devine Enukorah | AI Automation Engineer and Workflow Consultant</title>
+  <meta name="description" content="Devine Enukorah designs reliable n8n, API, and LLM automation systems with deterministic controls, validation, and human review.">
+  <meta name="author" content="Devine Enukorah">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://devineenukorah.github.io/professional-portfolio/">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Devine Enukorah Portfolio">
+  <meta property="og:title" content="Devine Enukorah | AI Automation Engineer and Workflow Consultant">
+  <meta property="og:description" content="Reliable AI automation, API integrations, structured LLM workflows, and human-review systems for business operations.">
+  <meta property="og:url" content="https://devineenukorah.github.io/professional-portfolio/">
+  <meta property="og:image" content="https://devineenukorah.github.io/professional-portfolio/images/Bless-Dark.png">
+  <meta property="og:image:alt" content="Portrait of Devine Enukorah">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                fontFamily: {
-                    sans: ['Inter', 'sans-serif'],
-                    mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-                },
-                extend: {
-                    animation: {
-                        blob: 'blob 8s infinite',
-                        float: 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0, 0) scale(1)' },
-                            '33%': { transform: 'translate(24px, -36px) scale(1.08)' },
-                            '66%': { transform: 'translate(-18px, 18px) scale(0.94)' },
-                            '100%': { transform: 'translate(0, 0) scale(1)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-14px)' },
-                        },
-                    },
-                },
-            },
-        };
-    </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Devine Enukorah | AI Automation Engineer and Workflow Consultant">
+  <meta name="twitter:description" content="Reliable n8n, API, and LLM automation systems for business operations.">
+  <meta name="twitter:image" content="https://devineenukorah.github.io/professional-portfolio/images/Bless-Dark.png">
+  <meta name="twitter:image:alt" content="Portrait of Devine Enukorah">
 
-    <script type="importmap">
-    {
-        "imports": {
-            "react": "https://esm.sh/react@18.2.0",
-            "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?external=react",
-            "lucide-react": "https://esm.sh/lucide-react@0.344.0?external=react"
-        }
-    }
-    </script>
+  <meta name="theme-color" content="#070d1d" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f9fc" media="(prefers-color-scheme: light)">
 
-    <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
-
-    <style>
-        html { scroll-behavior: smooth; }
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        *:focus-visible {
-            outline: 2px solid #6366f1;
-            outline-offset: 3px;
-        }
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        html.dark ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 999px;
-        }
-        html.dark ::-webkit-scrollbar-thumb { background: #334155; }
-        .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="sitemap" type="application/xml" href="./sitemap.xml">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script src="./assets/js/theme.js"></script>
+  <script src="./assets/js/main.js" defer></script>
 </head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-[#0B1120] dark:text-slate-50 transition-colors duration-500 selection:bg-indigo-500/30">
-    <div id="root"></div>
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-code" viewBox="0 0 24 24">
+      <path d="m16 18 6-6-6-6M8 6l-6 6 6 6M14.5 4l-5 16"/>
+    </symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/>
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M18 6 6 18M6 6l12 12"/>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M7 17 17 7M7 7h10v10"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.4 4 5 5 0 0 0 19.3.5S18.2.1 15 1.8a13.4 13.4 0 0 0-7 0C4.8.1 3.7.5 3.7.5A5 5 0 0 0 3.6 4a5.4 5.4 0 0 0-1.4 3.7c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 8 18v4M8 19c-3 .9-3-1.5-4-2"/>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6ZM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/>
+    </symbol>
+    <symbol id="icon-workflow" viewBox="0 0 24 24">
+      <rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/>
+    </symbol>
+    <symbol id="icon-network" viewBox="0 0 24 24">
+      <rect width="6" height="6" x="9" y="2" rx="1"/><rect width="6" height="6" x="2" y="16" rx="1"/><rect width="6" height="6" x="16" y="16" rx="1"/><path d="M12 8v4M5 16v-2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V5l8-3 8 3Z"/><path d="m9 12 2 2 4-4"/>
+    </symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24">
+      <rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="m20 6-11 11-5-5"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/>
+    </symbol>
+  </svg>
 
-    <script type="text/babel" data-type="module">
-        import React, { memo, useEffect, useRef, useState } from 'react';
-        import { createRoot } from 'react-dom/client';
-        import {
-            ArrowUp,
-            Check,
-            ChevronDown,
-            Code2,
-            Copy,
-            ExternalLink,
-            Github,
-            Globe2,
-            Linkedin,
-            Mail,
-            Menu,
-            Moon,
-            Network,
-            ShieldCheck,
-            Sun,
-            Terminal,
-            User,
-            Workflow,
-            X,
-        } from 'lucide-react';
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Devine Enukorah, home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="icon"><use href="#icon-code"/></svg>
+        </span>
+        <span>Devine<span class="brand-dot">.</span></span>
+      </a>
 
-        const EMAIL = 'enukorahdevine@gmail.com';
-        const CURRENT_YEAR = new Date().getFullYear();
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-        const NAV_LINKS = [
-            { name: 'About', href: '#about' },
-            { name: 'Capabilities', href: '#capabilities' },
-            { name: 'Projects', href: '#projects' },
-            { name: 'Contact', href: '#contact' },
-        ];
+      <div class="header-actions">
+        <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" aria-pressed="true">
+          <svg class="icon theme-icon theme-icon-sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+          <svg class="icon theme-icon theme-icon-moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        </button>
+        <button class="icon-button menu-toggle" type="button" data-menu-toggle aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation">
+          <svg class="icon menu-icon-open" aria-hidden="true"><use href="#icon-menu"/></svg>
+          <svg class="icon menu-icon-close" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </div>
+    </div>
 
-        const CAPABILITIES = [
-            {
-                category: 'AI Automation',
-                icon: Workflow,
-                description: 'Designing workflows that combine AI models with deterministic business logic.',
-                items: ['n8n', 'Google Gemini', 'OpenAI APIs', 'Prompt Design', 'Structured Outputs'],
-            },
-            {
-                category: 'Integration Engineering',
-                icon: Network,
-                description: 'Connecting applications, data sources, and services through dependable interfaces.',
-                items: ['REST APIs', 'Webhooks', 'JSON', 'OAuth', 'Google Workspace'],
-            },
-            {
-                category: 'Reliability & Safety',
-                icon: ShieldCheck,
-                description: 'Adding controls that make AI-assisted workflows reviewable and production-conscious.',
-                items: ['Input Validation', 'Prompt-Injection Detection', 'Controlled Errors', 'Confidence Scoring', 'Human Review'],
-            },
-        ];
+    <nav class="mobile-nav" id="mobile-navigation" data-mobile-nav aria-label="Mobile navigation" hidden>
+      <div class="container mobile-nav-inner">
+        <a href="#about">About</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-        const PROJECTS = [
-            {
-                title: 'AI Lead Qualification and Reply Assistant',
-                status: 'Production-ready workflow',
-                description: 'An n8n-based lead-processing system that validates inbound data, uses Gemini for constrained analysis, calculates scores deterministically, identifies stated pain points, and produces a review-ready follow-up response.',
-                tags: ['n8n', 'Gemini', 'JavaScript', 'Structured Output', 'Human Review'],
-                githubLink: 'https://github.com/DevineEnukorah/n8n-gemini-lead-qualifier',
-            },
-            {
-                title: 'Nigerian Legal Information Project',
-                status: 'Research and development',
-                description: 'An early-stage legal-technology project exploring reliable retrieval of Nigerian legislation, amendments, and authoritative legal sources. It is designed as an information and research assistant, not a replacement for qualified legal professionals.',
-                tags: ['Python', 'RAG', 'Vector Search', 'Legal Retrieval', 'Source Verification'],
-            },
-            {
-                title: 'AI Workflow Security Toolkit',
-                status: 'Toolkit in development',
-                description: 'A focused toolkit for safer automation workflows, covering input limits, structured-output validation, prompt-injection detection, controlled failures, confidence scoring, and human-review flags.',
-                tags: ['Input Validation', 'Prompt Injection', 'Confidence Scoring', 'Controlled Errors', 'Human Review'],
-            },
-        ];
+  <main id="main-content">
+    <section class="hero section" id="top" aria-labelledby="hero-title">
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="availability"><span aria-hidden="true"></span>Available for AI automation and workflow projects</p>
+          <p class="eyebrow">AI Automation Engineer and Workflow Consultant</p>
+          <h1 id="hero-title">Building reliable <span>AI automation systems.</span></h1>
+          <p class="hero-summary">I am <strong>Devine Enukorah</strong>, based in Abuja, Nigeria. I design n8n, API, and LLM workflows that improve business operations while preserving validation, deterministic control, and human oversight.</p>
 
-        const SOCIALS = [
-            { icon: Github, href: 'https://github.com/DevineEnukorah', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://www.linkedin.com/in/DevineEnukorah', label: 'LinkedIn' },
-            { icon: Mail, href: `mailto:${EMAIL}`, label: 'Email' },
-        ];
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore projects <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            <a class="button button-secondary" href="#contact">Discuss a workflow</a>
+          </div>
 
-        const useScrollReveal = () => {
-            const ref = useRef(null);
+          <div class="social-links" aria-label="Professional profiles">
+            <a href="https://github.com/DevineEnukorah" rel="me noopener noreferrer" target="_blank" aria-label="GitHub profile">
+              <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/DevineEnukorah" rel="me noopener noreferrer" target="_blank" aria-label="LinkedIn profile">
+              <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>
+            </a>
+            <a href="mailto:enukorahdevine@gmail.com" aria-label="Email Devine Enukorah">
+              <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+            </a>
+          </div>
+        </div>
 
-            useEffect(() => {
-                const observer = new IntersectionObserver(
-                    ([entry]) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('active');
-                            observer.unobserve(entry.target);
-                        }
-                    },
-                    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-                );
+        <div class="code-window reveal" aria-label="A code-style summary of Devine Enukorah's automation practice">
+          <div class="window-bar" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <p>workflow.ts</p>
+          </div>
+          <pre><code><span class="code-keyword">const</span> <span class="code-variable">automation</span> = {
+  engineer: <span class="code-string">"Devine Enukorah"</span>,
+  role: <span class="code-string">"AI Automation Engineer"</span>,
+  stack: [<span class="code-string">"n8n"</span>, <span class="code-string">"APIs"</span>, <span class="code-string">"LLMs"</span>],
+  controls: [<span class="code-value">"validation"</span>, <span class="code-value">"human review"</span>],
+  goal: <span class="code-accent">"Reliable business operations"</span>
+};</code></pre>
+        </div>
+      </div>
+    </section>
 
-                if (ref.current) observer.observe(ref.current);
-                return () => {
-                    if (ref.current) observer.unobserve(ref.current);
-                };
-            }, []);
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Professional positioning</p>
+          <h2 id="about-title">Automation that works in the real world</h2>
+          <span aria-hidden="true"></span>
+        </div>
 
-            return ref;
-        };
+        <div class="about-grid">
+          <div class="portrait-frame reveal">
+            <img class="portrait portrait-light" src="./images/Bless-White.png" width="640" height="800" alt="Devine Enukorah" loading="lazy" decoding="async">
+            <img class="portrait portrait-dark" src="./images/Bless-Dark.png" width="640" height="800" alt="" loading="lazy" decoding="async" aria-hidden="true">
+          </div>
 
-        const Reveal = ({ children, className = '', delay = 0 }) => {
-            const ref = useScrollReveal();
+          <div class="about-copy reveal">
+            <h3>From repetitive process to reliable system.</h3>
+            <p>I help businesses identify repetitive operational work, map the rules behind it, and turn it into dependable automation. My work connects AI models, APIs, business applications, and structured data without treating an LLM as the only decision-maker.</p>
+            <p>I focus on systems that are understandable and reviewable. That means clear inputs and outputs, deterministic scoring where appropriate, controlled failure paths, confidence signals, and human review before consequential action.</p>
 
-            return (
-                <div
-                    ref={ref}
-                    className={`reveal ${className}`}
-                    style={{ transitionDelay: `${delay}ms` }}
-                >
-                    {children}
+            <dl class="positioning-grid">
+              <div><dt>n8n</dt><dd>Workflow orchestration</dd></div>
+              <div><dt>API-first</dt><dd>System integration</dd></div>
+              <div><dt>HITL</dt><dd>Human-in-the-loop control</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="capabilities" aria-labelledby="capabilities-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Capabilities and stack</p>
+          <h2 id="capabilities-title">What I build and protect</h2>
+          <span aria-hidden="true"></span>
+        </div>
+
+        <div class="card-grid capability-grid">
+          <article class="capability-card reveal">
+            <div class="card-icon" aria-hidden="true"><svg class="icon"><use href="#icon-workflow"/></svg></div>
+            <h3>AI Automation</h3>
+            <p>Designing workflows that combine AI models with deterministic business logic.</p>
+            <ul class="tag-list" aria-label="AI automation technologies">
+              <li>n8n</li><li>Google Gemini</li><li>OpenAI APIs</li><li>Prompt Design</li><li>Structured Outputs</li>
+            </ul>
+          </article>
+
+          <article class="capability-card reveal">
+            <div class="card-icon" aria-hidden="true"><svg class="icon"><use href="#icon-network"/></svg></div>
+            <h3>Integration Engineering</h3>
+            <p>Connecting applications, data sources, and services through dependable interfaces.</p>
+            <ul class="tag-list" aria-label="Integration technologies">
+              <li>REST APIs</li><li>Webhooks</li><li>JSON</li><li>OAuth</li><li>Google Workspace</li>
+            </ul>
+          </article>
+
+          <article class="capability-card reveal">
+            <div class="card-icon" aria-hidden="true"><svg class="icon"><use href="#icon-shield"/></svg></div>
+            <h3>Reliability and Safety</h3>
+            <p>Adding controls that make AI-assisted workflows reviewable and production-conscious.</p>
+            <ul class="tag-list" aria-label="Reliability and safety controls">
+              <li>Input Validation</li><li>Prompt-Injection Detection</li><li>Controlled Errors</li><li>Confidence Scoring</li><li>Human Review</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selected work</p>
+          <h2 id="projects-title">Featured AI automation projects</h2>
+          <span aria-hidden="true"></span>
+        </div>
+
+        <div class="card-grid project-grid">
+          <article class="project-card reveal">
+            <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="project-body">
+              <div class="project-heading">
+                <div>
+                  <p class="project-status">Production-ready workflow</p>
+                  <h3>AI Lead Qualification and Reply Assistant</h3>
                 </div>
-            );
-        };
-
-        const SectionTitle = memo(({ children, subtitle }) => (
-            <div className="flex flex-col items-center mb-14 md:mb-20 text-center">
-                <span className="text-indigo-600 dark:text-indigo-400 font-semibold tracking-wider uppercase text-sm mb-3">
-                    {subtitle}
-                </span>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
-                    {children}
-                </h2>
-                <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full"></div>
+                <a class="project-link" href="https://github.com/DevineEnukorah/n8n-gemini-lead-qualifier" target="_blank" rel="noopener noreferrer" aria-label="View AI Lead Qualification and Reply Assistant on GitHub">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
+                </a>
+              </div>
+              <p>An n8n-based lead-processing system that validates inbound data, uses Gemini for constrained analysis, calculates scores deterministically, identifies stated pain points, and produces a review-ready follow-up response.</p>
+              <ul class="tag-list" aria-label="Project technologies"><li>n8n</li><li>Gemini</li><li>JavaScript</li><li>Structured Output</li><li>Human Review</li></ul>
             </div>
-        ));
+          </article>
 
-        const ProjectCard = memo(({ project, index }) => (
-            <Reveal delay={index * 120} className="h-full">
-                <article className="group relative bg-white dark:bg-slate-800/55 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-500 border border-slate-200/70 dark:border-slate-700/60 flex flex-col h-full backdrop-blur-sm hover:-translate-y-2">
-                    <div className="h-10 bg-slate-100/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-700/50 flex items-center px-4 gap-2">
-                        <span className="w-3 h-3 rounded-full bg-rose-400"></span>
-                        <span className="w-3 h-3 rounded-full bg-amber-400"></span>
-                        <span className="w-3 h-3 rounded-full bg-emerald-400"></span>
-                    </div>
-
-                    <div className="p-7 flex-1 flex flex-col">
-                        <div className="flex justify-between items-start gap-4 mb-4">
-                            <div>
-                                <p className="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3">
-                                    {project.status}
-                                </p>
-                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                                    {project.title}
-                                </h3>
-                            </div>
-
-                            {project.githubLink && (
-                                <a
-                                    href={project.githubLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="shrink-0 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-                                    aria-label={`View ${project.title} on GitHub`}
-                                >
-                                    <Github size={22} />
-                                </a>
-                            )}
-                        </div>
-
-                        <p className="text-slate-600 dark:text-slate-400 mb-7 flex-1 leading-relaxed">
-                            {project.description}
-                        </p>
-
-                        <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-slate-700/50">
-                            {project.tags.map((tag) => (
-                                <span
-                                    key={tag}
-                                    className="px-3 py-1 text-xs font-semibold rounded-md bg-slate-100 text-slate-700 dark:bg-slate-900 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                </article>
-            </Reveal>
-        ));
-
-        function App() {
-            const [darkMode, setDarkMode] = useState(false);
-            const [isMenuOpen, setIsMenuOpen] = useState(false);
-            const [activeSection, setActiveSection] = useState('');
-            const [isImageLoaded, setIsImageLoaded] = useState(false);
-            const [showBackToTop, setShowBackToTop] = useState(false);
-            const [emailCopied, setEmailCopied] = useState(false);
-            const [scrolled, setScrolled] = useState(false);
-
-            useEffect(() => {
-                if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) {
-                    setDarkMode(true);
-                }
-
-                const handleScroll = () => {
-                    setScrolled(window.scrollY > 50);
-                    setShowBackToTop(window.scrollY > 500);
-
-                    const scrollPosition = window.scrollY + 180;
-                    for (const link of NAV_LINKS) {
-                        const section = document.querySelector(link.href);
-                        if (
-                            section &&
-                            section.offsetTop <= scrollPosition &&
-                            section.offsetTop + section.offsetHeight > scrollPosition
-                        ) {
-                            setActiveSection(link.href.substring(1));
-                            break;
-                        }
-                    }
-                };
-
-                handleScroll();
-                window.addEventListener('scroll', handleScroll, { passive: true });
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
-
-            useEffect(() => {
-                document.documentElement.classList.toggle('dark', darkMode);
-            }, [darkMode]);
-
-            const handleNavClick = (event, href) => {
-                event.preventDefault();
-                setIsMenuOpen(false);
-                const element = document.querySelector(href);
-                if (element) {
-                    window.scrollTo({ top: element.offsetTop - 78, behavior: 'smooth' });
-                }
-            };
-
-            const copyEmail = async () => {
-                try {
-                    await navigator.clipboard.writeText(EMAIL);
-                    setEmailCopied(true);
-                    window.setTimeout(() => setEmailCopied(false), 2000);
-                } catch {
-                    window.location.href = `mailto:${EMAIL}`;
-                }
-            };
-
-            const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            return (
-                <div className="relative overflow-hidden">
-                    <div className="fixed inset-0 z-[-1] pointer-events-none">
-                        <div className="absolute top-[-10%] left-[-10%] w-[42%] h-[42%] rounded-full bg-indigo-500/10 dark:bg-indigo-600/20 blur-[120px] animate-blob"></div>
-                        <div className="absolute top-[22%] right-[-12%] w-[42%] h-[42%] rounded-full bg-purple-500/10 dark:bg-purple-600/20 blur-[120px] animate-blob" style={{ animationDelay: '2s' }}></div>
-                        <div className="absolute bottom-[-18%] left-[18%] w-[42%] h-[42%] rounded-full bg-blue-500/10 dark:bg-blue-600/20 blur-[120px] animate-blob" style={{ animationDelay: '4s' }}></div>
-                    </div>
-
-                    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/75 dark:bg-slate-900/75 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60 py-3' : 'bg-transparent py-5'}`}>
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="flex justify-between items-center">
-                                <button
-                                    type="button"
-                                    onClick={scrollToTop}
-                                    className="flex items-center gap-3 group"
-                                    aria-label="Go to top"
-                                >
-                                    <span className="bg-gradient-to-br from-indigo-500 to-purple-600 p-2 rounded-xl shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-                                        <Code2 className="text-white w-5 h-5 md:w-6 md:h-6" />
-                                    </span>
-                                    <span className="font-extrabold text-xl md:text-2xl tracking-tight text-slate-900 dark:text-white">
-                                        Devine<span className="text-indigo-600 dark:text-indigo-400">.</span>
-                                    </span>
-                                </button>
-
-                                <div className="hidden md:flex items-center gap-4">
-                                    <div className="flex items-center gap-1 bg-slate-100/60 dark:bg-slate-800/60 rounded-full px-2 py-1.5 border border-slate-200/60 dark:border-slate-700/60">
-                                        {NAV_LINKS.map((link) => (
-                                            <a
-                                                key={link.name}
-                                                href={link.href}
-                                                onClick={(event) => handleNavClick(event, link.href)}
-                                                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                                                    activeSection === link.href.substring(1)
-                                                        ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-sm'
-                                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                                                }`}
-                                            >
-                                                {link.name}
-                                            </a>
-                                        ))}
-                                    </div>
-
-                                    <button
-                                        type="button"
-                                        onClick={() => setDarkMode(!darkMode)}
-                                        aria-label="Toggle color theme"
-                                        className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all"
-                                    >
-                                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                                    </button>
-                                </div>
-
-                                <div className="flex md:hidden items-center gap-3">
-                                    <button
-                                        type="button"
-                                        onClick={() => setDarkMode(!darkMode)}
-                                        aria-label="Toggle color theme"
-                                        className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
-                                    >
-                                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                        aria-label="Toggle navigation"
-                                        className="p-2 text-slate-900 dark:text-white"
-                                    >
-                                        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={`md:hidden absolute w-full transition-all duration-300 origin-top ${isMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}`}>
-                            <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-2 shadow-2xl">
-                                {NAV_LINKS.map((link) => (
-                                    <a
-                                        key={link.name}
-                                        href={link.href}
-                                        onClick={(event) => handleNavClick(event, link.href)}
-                                        className="block px-4 py-4 rounded-xl text-lg font-semibold text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-white"
-                                    >
-                                        {link.name}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    </nav>
-
-                    <main>
-                        <section className="relative min-h-[92vh] flex items-center pt-24 px-4 max-w-7xl mx-auto">
-                            <div className="flex flex-col lg:flex-row items-center justify-between gap-16 w-full">
-                                <Reveal delay={80} className="flex-1 text-center lg:text-left z-10 w-full">
-                                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-300 text-sm font-semibold mb-8 shadow-sm">
-                                        <span className="relative flex h-3 w-3 mr-3">
-                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                                            <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
-                                        </span>
-                                        Available for AI automation and workflow projects
-                                    </div>
-
-                                    <p className="text-sm md:text-base font-bold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400 mb-5">
-                                        AI Automation Engineer & Workflow Consultant
-                                    </p>
-
-                                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.05] mb-7">
-                                        Building reliable
-                                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                                            AI automation systems.
-                                        </span>
-                                    </h1>
-
-                                    <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto lg:mx-0 leading-relaxed font-medium mb-10">
-                                        I am <span className="text-slate-900 dark:text-white font-bold">Devine Enukorah</span>, based in Abuja, Nigeria. I design n8n, API, and LLM workflows that improve business operations while preserving validation, deterministic control, and human oversight.
-                                    </p>
-
-                                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                        <a
-                                            href="#projects"
-                                            onClick={(event) => handleNavClick(event, '#projects')}
-                                            className="group px-8 py-4 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-lg hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white transition-all shadow-xl flex items-center justify-center gap-2"
-                                        >
-                                            Explore Projects
-                                            <ArrowUp className="w-5 h-5 rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                        </a>
-                                        <a
-                                            href="#contact"
-                                            onClick={(event) => handleNavClick(event, '#contact')}
-                                            className="px-8 py-4 rounded-xl bg-white dark:bg-slate-800/60 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-700 font-bold text-lg hover:border-indigo-500 dark:hover:border-indigo-400 transition-all flex items-center justify-center"
-                                        >
-                                            Discuss a Workflow
-                                        </a>
-                                    </div>
-
-                                    <div className="mt-12 flex items-center justify-center lg:justify-start gap-5">
-                                        {SOCIALS.map((social) => (
-                                            <a
-                                                key={social.label}
-                                                href={social.href}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                aria-label={social.label}
-                                                className="bg-white dark:bg-slate-800 p-3 rounded-full text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 shadow-sm border border-slate-100 dark:border-slate-700/50 transition-all hover:scale-110 hover:-translate-y-1"
-                                            >
-                                                <social.icon size={22} />
-                                            </a>
-                                        ))}
-                                    </div>
-                                </Reveal>
-
-                                <Reveal delay={260} className="flex-1 relative w-full max-w-lg lg:max-w-full hidden md:block z-10">
-                                    <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-2xl rounded-3xl p-1 shadow-2xl border border-white/40 dark:border-white/10 animate-float">
-                                        <div className="bg-slate-50 dark:bg-slate-900 rounded-[1.4rem] p-8 overflow-hidden">
-                                            <div className="flex items-center gap-2 mb-6 border-b border-slate-200 dark:border-slate-800 pb-4">
-                                                <div className="flex gap-2">
-                                                    <span className="w-3 h-3 rounded-full bg-rose-500"></span>
-                                                    <span className="w-3 h-3 rounded-full bg-amber-500"></span>
-                                                    <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
-                                                </div>
-                                                <div className="mx-auto flex items-center gap-2 text-slate-400 text-xs font-mono bg-slate-200/50 dark:bg-slate-800/50 px-3 py-1 rounded-md">
-                                                    <Terminal size={14} /> workflow.ts
-                                                </div>
-                                            </div>
-
-                                            <div className="space-y-4 font-mono text-[15px] leading-relaxed">
-                                                <p className="text-slate-600 dark:text-slate-400">
-                                                    <span className="text-purple-600 dark:text-purple-400">const</span>{' '}
-                                                    <span className="text-blue-600 dark:text-blue-400">automation</span> = {'{'}
-                                                </p>
-                                                <div className="pl-6 space-y-2">
-                                                    <p className="text-slate-600 dark:text-slate-300">
-                                                        engineer: <span className="text-emerald-600 dark:text-emerald-400">"Devine Enukorah"</span>,
-                                                    </p>
-                                                    <p className="text-slate-600 dark:text-slate-300">
-                                                        role: <span className="text-emerald-600 dark:text-emerald-400">"AI Automation Engineer"</span>,
-                                                    </p>
-                                                    <p className="text-slate-600 dark:text-slate-300">
-                                                        stack: [<span className="text-emerald-600 dark:text-emerald-400">"n8n"</span>, <span className="text-emerald-600 dark:text-emerald-400">"APIs"</span>, <span className="text-emerald-600 dark:text-emerald-400">"LLMs"</span>],
-                                                    </p>
-                                                    <p className="text-slate-600 dark:text-slate-300">
-                                                        controls: [<span className="text-amber-600 dark:text-amber-400">"validation"</span>, <span className="text-amber-600 dark:text-amber-400">"human review"</span>],
-                                                    </p>
-                                                    <p className="text-slate-600 dark:text-slate-300">
-                                                        goal: <span className="text-rose-500">"Reliable business operations"</span>
-                                                    </p>
-                                                </div>
-                                                <p className="text-slate-600 dark:text-slate-400">{'};'}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Reveal>
-                            </div>
-
-                            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block text-slate-400">
-                                <ChevronDown size={30} />
-                            </div>
-                        </section>
-
-                        <section id="about" className="py-24 relative">
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                <Reveal>
-                                    <SectionTitle subtitle="Professional positioning">Automation that works in the real world</SectionTitle>
-                                </Reveal>
-
-                                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mt-10">
-                                    <Reveal delay={100} className="lg:col-span-5 relative">
-                                        <div className="relative w-full max-w-sm mx-auto aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                                            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 opacity-20 dark:opacity-40"></div>
-                                            <div className="absolute inset-2 bg-slate-200 dark:bg-slate-800 rounded-2xl overflow-hidden flex items-center justify-center">
-                                                {!isImageLoaded && <User size={64} className="text-slate-400 animate-pulse" />}
-                                                <img
-                                                    src={darkMode ? './images/Bless-Dark.png' : './images/Bless-White.png'}
-                                                    alt="Devine Enukorah"
-                                                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                                                    onLoad={() => setIsImageLoaded(true)}
-                                                />
-                                            </div>
-                                        </div>
-                                    </Reveal>
-
-                                    <Reveal delay={220} className="lg:col-span-7 space-y-8">
-                                        <h3 className="text-3xl font-bold text-slate-900 dark:text-white">
-                                            From repetitive process to reliable system.
-                                        </h3>
-                                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                                            I help businesses identify repetitive operational work, map the rules behind it, and turn it into dependable automation. My work connects AI models, APIs, business applications, and structured data without treating an LLM as the only decision-maker.
-                                        </p>
-                                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                                            I focus on systems that are understandable and reviewable. That means clear inputs and outputs, deterministic scoring where appropriate, controlled failure paths, confidence signals, and human review before consequential action.
-                                        </p>
-
-                                        <div className="grid sm:grid-cols-3 gap-5 pt-6 border-t border-slate-200 dark:border-slate-800">
-                                            <div className="rounded-2xl bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 p-5">
-                                                <p className="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 mb-2">n8n</p>
-                                                <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">Workflow orchestration</p>
-                                            </div>
-                                            <div className="rounded-2xl bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 p-5">
-                                                <p className="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 mb-2">API-first</p>
-                                                <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">System integration</p>
-                                            </div>
-                                            <div className="rounded-2xl bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 p-5">
-                                                <p className="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 mb-2">HITL</p>
-                                                <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">Human-in-the-loop control</p>
-                                            </div>
-                                        </div>
-                                    </Reveal>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="capabilities" className="py-24 bg-slate-100/55 dark:bg-slate-900/50 relative border-y border-slate-200/50 dark:border-slate-800/50">
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                <Reveal>
-                                    <SectionTitle subtitle="Capabilities and stack">What I build and protect</SectionTitle>
-                                </Reveal>
-
-                                <div className="grid md:grid-cols-3 gap-8 mt-10">
-                                    {CAPABILITIES.map((capability, index) => (
-                                        <Reveal key={capability.category} delay={index * 120}>
-                                            <article className="bg-white dark:bg-slate-800 rounded-3xl p-8 h-full shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-200 dark:border-slate-700 hover:-translate-y-2 transition-transform duration-300">
-                                                <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6">
-                                                    <capability.icon size={32} />
-                                                </div>
-                                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
-                                                    {capability.category}
-                                                </h3>
-                                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-7">
-                                                    {capability.description}
-                                                </p>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {capability.items.map((item) => (
-                                                        <span
-                                                            key={item}
-                                                            className="px-3 py-2 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-semibold border border-slate-200 dark:border-slate-700"
-                                                        >
-                                                            {item}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </article>
-                                        </Reveal>
-                                    ))}
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="projects" className="py-24 relative">
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                <Reveal>
-                                    <SectionTitle subtitle="Selected work">Featured AI automation projects</SectionTitle>
-                                </Reveal>
-
-                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                                    {PROJECTS.map((project, index) => (
-                                        <ProjectCard key={project.title} project={project} index={index} />
-                                    ))}
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="contact" className="py-24 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-slate-900 dark:bg-black">
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-indigo-900/45"></div>
-                            </div>
-
-                            <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-                                <Reveal>
-                                    <Globe2 className="mx-auto text-indigo-400 mb-6" size={42} />
-                                    <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                                        Have a workflow that needs improvement?
-                                    </h2>
-                                    <p className="text-slate-300 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
-                                        Tell me where the process is repetitive, slow, inconsistent, or difficult to scale. I can help map the workflow, identify suitable automation points, and design the controls needed for dependable operation.
-                                    </p>
-
-                                    <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-                                        <a
-                                            href={`mailto:${EMAIL}`}
-                                            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-lg font-bold transition-all shadow-lg shadow-indigo-600/30 hover:-translate-y-1"
-                                        >
-                                            <Mail size={22} /> Start a Conversation
-                                        </a>
-                                        <button
-                                            type="button"
-                                            onClick={copyEmail}
-                                            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 rounded-xl text-lg font-bold transition-all hover:-translate-y-1"
-                                        >
-                                            {emailCopied ? <Check size={22} className="text-green-400" /> : <Copy size={22} />}
-                                            {emailCopied ? 'Email Copied' : 'Copy Email'}
-                                        </button>
-                                    </div>
-                                </Reveal>
-
-                                <div className="mt-24 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-5">
-                                    <p className="text-slate-400 font-medium">
-                                        &copy; {CURRENT_YEAR} Devine Enukorah. All rights reserved.
-                                    </p>
-                                    <div className="flex gap-5">
-                                        {SOCIALS.map((social) => (
-                                            <a
-                                                key={social.label}
-                                                href={social.href}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-slate-400 hover:text-white transition-colors"
-                                            >
-                                                <span className="sr-only">{social.label}</span>
-                                                <social.icon size={20} />
-                                            </a>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </main>
-
-                    <button
-                        type="button"
-                        onClick={scrollToTop}
-                        aria-label="Scroll to top"
-                        className={`fixed bottom-8 right-8 p-4 rounded-2xl bg-indigo-600 text-white shadow-xl shadow-indigo-500/30 hover:bg-indigo-500 hover:-translate-y-2 transition-all duration-300 z-40 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 pointer-events-none'}`}
-                    >
-                        <ArrowUp size={24} strokeWidth={2.5} />
-                    </button>
+          <article class="project-card reveal">
+            <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="project-body">
+              <div class="project-heading">
+                <div>
+                  <p class="project-status">Research and development</p>
+                  <h3>Nigerian Legal Information Project</h3>
                 </div>
-            );
-        }
+              </div>
+              <p>An early-stage legal-technology project exploring reliable retrieval of Nigerian legislation, amendments, and authoritative legal sources. It is designed as an information and research assistant, not a replacement for qualified legal professionals.</p>
+              <ul class="tag-list" aria-label="Project technologies"><li>Python</li><li>RAG</li><li>Vector Search</li><li>Legal Retrieval</li><li>Source Verification</li></ul>
+            </div>
+          </article>
 
-        const root = createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+          <article class="project-card reveal">
+            <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="project-body">
+              <div class="project-heading">
+                <div>
+                  <p class="project-status">Toolkit in development</p>
+                  <h3>AI Workflow Security Toolkit</h3>
+                </div>
+              </div>
+              <p>A focused toolkit for safer automation workflows, covering input limits, structured-output validation, prompt-injection detection, controlled failures, confidence scoring, and human-review flags.</p>
+              <ul class="tag-list" aria-label="Project controls"><li>Input Validation</li><li>Prompt Injection</li><li>Confidence Scoring</li><li>Controlled Errors</li><li>Human Review</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Delivery approach</p>
+          <h2 id="process-title">A controlled path from idea to operation</h2>
+          <span aria-hidden="true"></span>
+        </div>
+        <ol class="process-grid">
+          <li class="reveal"><span>01</span><h3>Map</h3><p>Document the process, inputs, decisions, exceptions, owners, and desired outcomes.</p></li>
+          <li class="reveal"><span>02</span><h3>Design</h3><p>Separate deterministic rules from model-assisted tasks and define safe boundaries.</p></li>
+          <li class="reveal"><span>03</span><h3>Validate</h3><p>Test normal, malformed, adversarial, and low-confidence cases before deployment.</p></li>
+          <li class="reveal"><span>04</span><h3>Operate</h3><p>Deliver documentation, review points, monitoring expectations, and clear handover.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="container contact-inner reveal">
+        <svg class="icon contact-icon" aria-hidden="true"><use href="#icon-globe"/></svg>
+        <h2 id="contact-title">Have a workflow that needs improvement?</h2>
+        <p>Tell me where the process is repetitive, slow, inconsistent, or difficult to scale. I can help map the workflow, identify suitable automation points, and design the controls needed for dependable operation.</p>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:enukorahdevine@gmail.com?subject=AI%20automation%20project"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg> Start a conversation</a>
+          <button class="button button-secondary copy-button" type="button" data-copy-email data-email="enukorahdevine@gmail.com">
+            <svg class="icon copy-icon" aria-hidden="true"><use href="#icon-copy"/></svg>
+            <svg class="icon check-icon" aria-hidden="true"><use href="#icon-check"/></svg>
+            <span data-copy-label>Copy email</span>
+          </button>
+        </div>
+        <p class="copy-status" data-copy-status aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span data-current-year>2026</span> Devine Enukorah. All rights reserved.</p>
+      <nav aria-label="Footer links">
+        <a href="https://github.com/DevineEnukorah" rel="me noopener noreferrer" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/DevineEnukorah" rel="me noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="mailto:enukorahdevine@gmail.com">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <a class="back-to-top" href="#top" data-back-to-top aria-label="Back to top">
+    <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+  </a>
 </body>
 </html>
