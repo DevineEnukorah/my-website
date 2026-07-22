@@ -53,7 +53,7 @@ Go to Settings > Pages.
 
 Select the main branch as the source.
 
-Your site will be live at <https://yourusername.github.io/repo-name>.
+Your site will be live at <https://devineenukorah.github.io/repo-name>.
 
 👤 Author
 
