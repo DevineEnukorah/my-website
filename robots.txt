@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://devineenukorah.github.io/my-website/sitemap.xml
+Sitemap: https://devineenukorah.github.io/professional-portfolio/sitemap.xml
